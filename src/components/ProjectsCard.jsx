@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ProjectsCard ({project}) {
     return (
-        <div className="grid lg:grid-cols-3 border-solid border border-violet-600 bg-violet-500">
+        <div className="grid grid-cols-1 lg:grid-cols-3 border-solid border border-violet-600 bg-violet-500">
             <div className="h-full">
                 <img className="h-full object-cover" src={project.projectImg[0]} alt="not found" />
             </div>
