@@ -20,6 +20,17 @@ export default function DetailProjectCard ({project}) {
                     </div>
                 ))
             }
+            <div className="text-center">
+                    <a href={project.siteUrl} rel="noopener noreferrer" target="_blank">
+                        <button className="border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-full md:w-2/5 lg:w-1/6">Sitio</button>
+                    </a>
+                    <a href={project.frontUrl} rel="noopener noreferrer" target="_blank">
+                        <button className="border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-full md:w-2/5 lg:w-1/5">Repo Front</button>
+                    </a>
+                    <a href={project.backUrl} rel="noopener noreferrer" target="_blank">
+                        <button className="border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-full md:w-2/5 lg:w-1/5">Repo Back</button>
+                    </a>
+                </div>
         </div>
     )
 }
