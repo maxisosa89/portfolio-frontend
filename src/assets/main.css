@@ -486,6 +486,9 @@ video {
     max-width: 1536px;
   }
 }
+.fixed {
+  position: fixed;
+}
 .m-1 {
   margin: 0.25rem;
 }
@@ -528,11 +531,11 @@ video {
 .h-full {
   height: 100%;
 }
-.w-3 {
-  width: 0.75rem;
-}
 .w-full {
   width: 100%;
+}
+.w-3 {
+  width: 0.75rem;
 }
 .flex-shrink-0 {
   flex-shrink: 0;
@@ -607,6 +610,9 @@ video {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.pt-24 {
+  padding-top: 6rem;
 }
 .text-center {
   text-align: center;

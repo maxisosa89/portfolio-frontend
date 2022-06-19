@@ -12,7 +12,7 @@ export default function ProjectsPage () {
         getAllProjects();
     }, []);
     return (
-        <div className="container mx-auto bg-violet-900">
+        <div className="container mx-auto bg-violet-900 pt-24">
             <h1 className="text-5xl text-center text-white font-bold uppercase">Proyectos</h1>
             {
                 projects?.map(p => (
