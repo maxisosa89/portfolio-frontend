@@ -2,8 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export default function NavBar () {
-    function handleToggle(e) {
-        e.preventDefault();
+    function handleToggle() {
         document.getElementById("containerData").classList.toggle("hidden");
     }
     return (
@@ -18,27 +17,27 @@ export default function NavBar () {
             </div>
             <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" id="containerData">
                 <div className="text-sm lg:flex-grow">
-                    <NavLink to='/about'>
+                    <NavLink to='/about' onClick={handleToggle}>
                         <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
                             Sobre mí
                         </p>
                     </NavLink>
-                    <NavLink to='/projects'>
+                    <NavLink to='/projects' onClick={handleToggle}>
                         <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
                             Mis Proyectos
                         </p>
                     </NavLink>
-                    <NavLink to='/skills'>
+                    <NavLink to='/skills' onClick={handleToggle}>
                         <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
                             Skills
                         </p>
                     </NavLink>
-                    <NavLink to='/contact'>
+                    <NavLink to='/contact' onClick={handleToggle}>
                         <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
                             Contacto
                         </p>
                     </NavLink>
-                    <NavLink to='/admin/dashboard'>
+                    <NavLink to='/admin/dashboard' onClick={handleToggle}>
                         <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300">
                             Admin
                         </p>
