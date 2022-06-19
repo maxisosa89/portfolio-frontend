@@ -12,11 +12,11 @@ export default function ProjectsPage () {
         getAllProjects();
     }, []);
     return (
-        <div className="container mx-auto">
-            <h1 className="text-5xl text-center uppercase">Proyectos</h1>
+        <div className="container mx-auto bg-violet-900">
+            <h1 className="text-5xl text-center text-white font-bold uppercase">Proyectos</h1>
             {
                 projects?.map(p => (
-                    <div key={p.id}>
+                    <div key={p.id} className="my-5 mx-5">
                         <ProjectsCard project={p} />
                     </div>
                 ))
