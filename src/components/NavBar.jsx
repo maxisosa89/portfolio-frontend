@@ -18,23 +18,31 @@ export default function NavBar () {
             </div>
             <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" id="containerData">
                 <div className="text-sm lg:flex-grow">
-                    <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
-                        Sobre mí
-                    </p>
+                    <NavLink to='/about'>
+                        <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
+                            Sobre mí
+                        </p>
+                    </NavLink>
                     <NavLink to='/projects'>
                         <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
                             Mis Proyectos
                         </p>
                     </NavLink>
-                    <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
-                        Skills
-                    </p>
-                    <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
-                        Contacto
-                    </p>
-                    <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300">
-                        Admin
-                    </p>
+                    <NavLink to='/skills'>
+                        <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
+                            Skills
+                        </p>
+                    </NavLink>
+                    <NavLink to='/contact'>
+                        <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300 mr-4">
+                            Contacto
+                        </p>
+                    </NavLink>
+                    <NavLink to='/admin/dashboard'>
+                        <p className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-300">
+                            Admin
+                        </p>
+                    </NavLink>
                 </div>
             </div>
         </nav>
