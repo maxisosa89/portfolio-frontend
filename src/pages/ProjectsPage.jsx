@@ -12,8 +12,8 @@ export default function ProjectsPage () {
         getAllProjects();
     }, []);
     return (
-        <div>
-            <h1>Proyectos</h1>
+        <div className="container mx-auto">
+            <h1 className="text-5xl text-center uppercase">Proyectos</h1>
             {
                 projects?.map(p => (
                     <div key={p.id}>
