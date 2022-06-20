@@ -21,7 +21,7 @@ export default function ProjectsPage () {
                 loading ?
                 <Spinner /> :
                 projects?.map(p => (
-                    <div key={p.id} className="my-5 mx-5">
+                    <div key={p.id} className="my-5 mx-0 md:mx-5">
                         <ProjectsCard project={p} />
                     </div>
                 ))

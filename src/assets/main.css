@@ -518,9 +518,9 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .mt-10 {
   margin-top: 2.5rem;
@@ -767,6 +767,11 @@ video {
 
   .md\:m-10 {
     margin: 2.5rem;
+  }
+
+  .md\:mx-5 {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
   }
 
   .md\:w-2\/5 {
