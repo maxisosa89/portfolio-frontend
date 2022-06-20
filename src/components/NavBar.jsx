@@ -6,7 +6,7 @@ export default function NavBar () {
         document.getElementById("containerData").classList.toggle("hidden");
     }
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-violet-700 p-6 fixed w-full">
+        <nav className="flex items-center justify-between flex-wrap z-50 bg-violet-700 p-6 fixed w-full">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
                 <span className="font-semibold text-xl tracking-tight">LOGO</span>
             </div>
