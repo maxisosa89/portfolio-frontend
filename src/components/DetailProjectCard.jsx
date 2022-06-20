@@ -3,7 +3,7 @@ import Carousel from './Carousel'
 
 export default function DetailProjectCard ({project}) {
     return (
-        <div className="grid grid-cols-1 mt-10 md:p-10 md:m-10 border-solid border border-violet-600 bg-violet-500">
+        <div className="grid grid-cols-1 mt-10 md:p-10 md:m-10 border-solid bg-secondary">
             <h1 className="mb-7 text-4xl text-center text-white font-bold uppercase">{project.projectTitle}</h1>
             <Carousel project={project}/>
             <div className="m-5 mt-10 text-2xl text-white font-bold">
@@ -42,13 +42,13 @@ export default function DetailProjectCard ({project}) {
             </div>
             <div className="text-center mt-5 grid grid-cols-1 md:grid-cols-3">
                     <a href={project.siteUrl} rel="noopener noreferrer" target="_blank">
-                        <button className="border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-40">Sitio</button>
+                        <button className="border border-white bg-secondary hover:bg-tertiary text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-40">Sitio</button>
                     </a>
                     <a href={project.frontUrl} rel="noopener noreferrer" target="_blank">
-                        <button className="border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-40">Repo Front</button>
+                        <button className="border border-white bg-secondary hover:bg-tertiary text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-40">Repo Front</button>
                     </a>
                     <a href={project.backUrl} rel="noopener noreferrer" target="_blank">
-                        <button className="border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-40">Repo Back</button>
+                        <button className="border border-white bg-secondary hover:bg-tertiary text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-40">Repo Back</button>
                     </a>
             </div>
         </div>

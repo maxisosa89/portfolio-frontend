@@ -25,7 +25,7 @@ export default function Carousel ({project}) {
             <img className="h-96 w-full object-cover" src={currentImg} alt="not found" />
             <div className="flex justify-between self-end absolute w-full">
                 <button
-                    className="w-10 h-10 m-2 border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold text-2xl flex align-middle justify-center rounded-full"
+                    className="w-10 h-10 m-2 border border-white bg-secondary hover:bg-tertiary text-white font-semibold text-2xl rounded-full"
                     value="prev"
                     onClick={handleSlide}>
                     {'<'}
@@ -34,7 +34,7 @@ export default function Carousel ({project}) {
                     {
                         project.projectImg.map((e, index) => (
                             <button
-                                className={`w-4 h-4 m-2 border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold text-2xl flex align-middle justify-center rounded-full ${index === count && 'bg-violet-900 hover:bg-violet-900'}`}
+                                className={`w-4 h-4 m-2 border border-white bg-secondary hover:bg-tertiary text-white font-semibold text-2xl flex align-middle justify-center rounded-full ${index === count && 'bg-primary hover:bg-primary'}`}
                                 id={index}
                                 value={index}
                                 key={index}
@@ -44,7 +44,7 @@ export default function Carousel ({project}) {
                     }
                 </div>
                 <button
-                    className="w-10 h-10 m-2 border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold text-2xl flex align-middle justify-center rounded-full"
+                    className="w-10 h-10 m-2 border border-white bg-secondary hover:bg-tertiary text-white font-semibold text-2xl rounded-full"
                     value="next"
                     onClick={handleSlide}>
                     {'>'}
