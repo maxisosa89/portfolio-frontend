@@ -18,10 +18,10 @@ export default function DetailProjectPage () {
         getProject();
     }, []);
     return (
-        <div className="container mx-auto bg-violet-900 pt-24">
+        <div className="container mx-auto bg-tertiary pt-24">
             <NavLink to='/projects'>
                 <div className="text-center">
-                    <button className="border border-white bg-violet-500 hover:bg-violet-600 text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-40">Volver</button>
+                    <button className="border border-white bg-tertiary hover:bg-secondary text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-40">Volver</button>
                 </div>
             </ NavLink>
             {
