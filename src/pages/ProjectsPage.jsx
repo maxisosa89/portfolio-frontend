@@ -19,7 +19,9 @@ export default function ProjectsPage () {
             <h1 className="text-5xl text-center text-white font-bold uppercase">Proyectos</h1>
             {
                 loading ?
-                <Spinner /> :
+                <div className="fixed top-1/2 left-1/2 p-5 transform -translate-x-1/2 -translate-y-1/2">
+                    <Spinner />
+                </div> :
                 projects?.map(p => (
                     <div key={p.id} className="my-5 mx-0 md:mx-5">
                         <ProjectsCard project={p} />
