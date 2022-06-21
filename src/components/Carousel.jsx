@@ -19,7 +19,7 @@ export default function Carousel ({project}) {
     };
     useEffect(() => {
         setCurrentImg(project.projectImg[count]);
-    }, [count]);
+    }, [count, project.projectImg]);
     return (
         <div className="relative grid h-96 w-full">
             <img className="h-96 w-full object-cover" src={currentImg} alt="not found" />

@@ -7,16 +7,16 @@ import Spinner from "../components/Spinner";
 export default function DetailProjectPage () {
     const [project, setProject] = useState();
     const [loading, setLoading] = useState(true);
-    const { id } = useParams();
-    const getProject = async () => {
-        const proj = await axios.get(`http://localhost:3001/projects/${id}`);
-        console.log(proj.data);
-        setProject(proj.data);
-        setLoading(false);
-    };
+    const [{id}] = useState(useParams());
     useEffect(() => {
+        const getProject = async () => {
+            const proj = await axios.get(`http://localhost:3001/projects/${id}`);
+            console.log(proj.data);
+            setProject(proj.data);
+            setLoading(false);
+        };
         getProject();
-    }, []);
+    }, [id]);
     return (
         <div className="container mx-auto bg-tertiary pt-24">
             <NavLink to='/projects'>
