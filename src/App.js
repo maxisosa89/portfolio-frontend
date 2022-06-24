@@ -9,6 +9,7 @@ import DetailProjectPage from './pages/DetailProjectPage';
 //Admin Pages
 import DashboardPage from './pages/admin/DashboardPage';
 import ListProjectsPage from './pages/admin/ListProjectsPage';
+import ListMessagesPage from './pages/admin/ListMessagesPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path= '/skills' element={<SkillsPage />} />
         <Route path= '/admin/dashboard' element={<DashboardPage />} />
         <Route path= '/admin/projects' element={<ListProjectsPage />} />
+        <Route path= '/admin/messages' element={<ListMessagesPage />} />
       </Routes>
     </BrowserRouter>
   );
