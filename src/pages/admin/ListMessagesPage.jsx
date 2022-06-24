@@ -11,6 +11,11 @@ export default function ListMessagesPage () {
         setMessages(allM.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
         setLoading(false);
     };
+    async function handleRead (e) {
+        e.preventDefault();
+        await axios.put(`http://localhost:3001/messages/${e.target.id}`)
+        getAllMessages();
+    };
     useEffect(() => {
         getAllMessages();
     }, []);
@@ -23,7 +28,7 @@ export default function ListMessagesPage () {
                 </div> :
                 messages?.map(m => (
                     <div key={m.id} className="my-5 mx-0 md:mx-5">
-                        <MessagesCard message={m} />
+                        <MessagesCard message={m} handleRead={handleRead} />
                     </div>
                 ))
             }

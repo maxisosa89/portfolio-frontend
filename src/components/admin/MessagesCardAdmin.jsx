@@ -1,7 +1,7 @@
 import React from "react";
 import {format} from 'date-fns'
 
-export default function MessagesCardAdmin({ message }) {
+export default function MessagesCardAdmin({ message, handleRead }) {
     return (
         <div>
             <hr className="my-1 mx-2 md:mx-5 border border-gray-400" />
@@ -23,18 +23,23 @@ export default function MessagesCardAdmin({ message }) {
                 </div>
                 <div className="w-full md:w-2/12 lg:w-1/12 self-center">
                     <div className="flex md:inline justify-center">
-                        {/* <img
-                            src="https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656069390/Portfolio/iconos/read_i7fhfl.png"
-                            alt="Leer"
-                            className="h-16 mx-2 md:my-2 border-4 border-blue-900 rounded cursor-pointer hover:bg-blue-500"
-                            onClick={e => console.log("Leer")}
-                        /> */}
-                        <img
-                            src="https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656069390/Portfolio/iconos/unread_janl1n.png"
-                            alt="Leer"
-                            className="h-16 mx-2 md:mx-auto lg:mx-2 md:my-2 border-4 border-blue-900 rounded cursor-pointer hover:bg-blue-500"
-                            onClick={e => console.log("No Leer")}
-                        />
+                        {
+                            message.read ?
+                            <img
+                                id={message.id}
+                                src="https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656069390/Portfolio/iconos/unread_janl1n.png"
+                                alt="No Leer"
+                                className="h-16 mx-2 md:mx-auto lg:mx-2 md:my-2 border-4 border-blue-900 rounded cursor-pointer hover:bg-blue-500"
+                                onClick={handleRead}
+                            /> :
+                            <img
+                                id={message.id}
+                                src="https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656069390/Portfolio/iconos/read_i7fhfl.png"
+                                alt="Leer"
+                                className="h-16 mx-2 md:mx-auto lg:mx-2 md:my-2 border-4 border-blue-900 rounded cursor-pointer hover:bg-blue-500"
+                                onClick={handleRead}
+                            />
+                        }
                         <img
                             src="https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656060758/Portfolio/iconos/delete_g3pwe2.png"
                             alt="Eliminar"
