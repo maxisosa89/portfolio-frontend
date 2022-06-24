@@ -34,25 +34,25 @@ export default function ContactPage() {
       await axios.post("http://localhost:3001/messages", dataForm);
       handleClear(e);
       document.getElementById("modalSucces").classList.remove("hidden");
+      setIsSubmit(false);
     } else {
       const inputs = document.getElementsByName("inputForm");
-      /* inputs.forEach(i => {
+      inputs.forEach(i => {
         i.setAttribute("disabled", "");
-      }); */
+      });
       document.getElementById("modalError").classList.remove("hidden");
-      /* document.getElementById("formContact").classList.add("blur-sm"); */
+      document.getElementById("formContact").classList.add("blur-sm");
       setLoading(false);
     }
   };
   function handleCloseModal(e) {
     e.preventDefault();
     const inputs = document.getElementsByName("inputForm");
-    /* inputs.forEach(i => {
+    inputs.forEach(i => {
       i.removeAttribute("disabled");
-    }); */
+    });
     document.getElementById(e.target.name).classList.add("hidden");
-    /* document.getElementById("formContact").classList.remove("blur-sm"); */
-    setIsSubmit(false);
+    document.getElementById("formContact")?.classList.remove("blur-sm");
     setLoading(false);
   };
   useEffect(() => {
