@@ -37,8 +37,13 @@ export default function ContactPage() {
       setIsSubmit(false);
     } else {
       const inputs = document.getElementsByName("inputForm");
+      const btnForm = document.getElementsByName("buttonForm");
       inputs.forEach(i => {
         i.setAttribute("disabled", "");
+      });
+      btnForm.forEach(i => {
+        i.setAttribute("disabled", "");
+        i.classList.remove("hover:bg-tertiary");
       });
       document.getElementById("modalError").classList.remove("hidden");
       document.getElementById("formContact").classList.add("blur-sm");
@@ -48,8 +53,13 @@ export default function ContactPage() {
   function handleCloseModal(e) {
     e.preventDefault();
     const inputs = document.getElementsByName("inputForm");
+    const btnForm = document.getElementsByName("buttonForm");
     inputs.forEach(i => {
       i.removeAttribute("disabled");
+    });
+    btnForm.forEach(i => {
+      i.removeAttribute("disabled");
+      i.classList.add("hover:bg-tertiary");
     });
     document.getElementById(e.target.name).classList.add("hidden");
     document.getElementById("formContact")?.classList.remove("blur-sm");
@@ -157,6 +167,7 @@ export default function ContactPage() {
             <div className="w-full lg:w-1/2 px-3 py-3">
               <button
                 type="submit"
+                name="buttonForm"
                 className="w-full bg-secondary hover:bg-tertiary text-white border font-semibold border-white rounded py-3 px-4 leading-tight">
                 Enviar
               </button>
@@ -164,6 +175,7 @@ export default function ContactPage() {
             <div className="w-full lg:w-1/2 px-3 py-3">
               <button
                 onClick={handleClear}
+                name="buttonForm"
                 className="w-full bg-secondary hover:bg-tertiary text-white border font-semibold border-white rounded py-3 px-4 leading-tight">
                 Limpiar
               </button>
