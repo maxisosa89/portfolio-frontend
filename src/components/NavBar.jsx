@@ -12,12 +12,12 @@ export default function NavBar () {
         }
     });
     return (
-        <nav className="flex items-center justify-between flex-wrap z-50 bg-primary p-6 fixed w-full shadow-sm shadow-white">
-            <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <nav className="flex items-center justify-between flex-wrap z-50 bg-primary fixed px-6 w-full shadow-sm shadow-white">
+            <div className="flex items-center flex-shrink-0 text-white mr-6 my-6">
                 <span className="font-semibold text-xl tracking-tight">LOGO</span>
             </div>
             <div className="block lg:hidden">
-                <button id="btn" className="px-3 py-2 border rounded text-white border-white hover:text-tertiary hover:border-tertiary" onClick={handleToggle}>
+                <button id="btn" className="h-8 w-8 border rounded text-white border-white hover:text-tertiary hover:border-tertiary" onClick={handleToggle}>
                     ☰
                 </button>
             </div>
