@@ -1,10 +1,18 @@
 import React from "react";
-import Carousel from './Carousel'
+import { NavLink } from "react-router-dom";
+import Carousel from './Carousel';
 
 export default function DetailProjectCard ({project}) {
     return (
-        <div className="grid grid-cols-1 mt-10 md:p-10 md:m-10 border-solid bg-secondary">
-            <h1 className="mb-7 text-4xl text-center text-white font-bold uppercase">{project.projectTitle}</h1>
+        <div className="grid grid-cols-1 mt-10 md:p-10 md:m-10 border-solid bg-secondary shadow-md shadow-primary">
+            <div className="flex w-full mb-7">
+                <NavLink to='/projects'>
+                    <div className="">
+                        <button className="border border-white bg-secondary hover:bg-tertiary text-white font-bold py-2 px-4 m-1 rounded">{"<"}</button>
+                    </div>
+                </ NavLink>
+                <h1 className="flex justify-center items-center w-full text-4xl text-white font-semibold uppercase">{project.projectTitle}</h1>
+            </div>
             <Carousel project={project}/>
             <div className="m-5 mt-10 text-2xl text-white font-bold">
                 <h3>Descripción</h3>

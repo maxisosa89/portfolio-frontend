@@ -16,7 +16,6 @@ export default function ProjectsPage () {
     }, []);
     return (
         <div className="container mx-auto bg-tertiary pt-24">
-            <h1 className="text-5xl text-center text-white font-bold uppercase">Proyectos</h1>
             {
                 loading ?
                 <div className="fixed top-1/2 left-1/2 p-5 transform -translate-x-1/2 -translate-y-1/2">

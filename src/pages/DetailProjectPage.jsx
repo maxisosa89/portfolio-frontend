@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DetailProjectCard from "../components/DetailProjectCard";
 import axios from "axios";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 
 export default function DetailProjectPage () {
@@ -19,11 +19,6 @@ export default function DetailProjectPage () {
     }, [id]);
     return (
         <div className="container mx-auto bg-tertiary pt-24">
-            <NavLink to='/projects'>
-                <div className="text-center">
-                    <button className="border border-white bg-tertiary hover:bg-secondary text-white font-semibold py-2 px-4 lg:px-2 m-1 rounded-full w-40">Volver</button>
-                </div>
-            </ NavLink>
             {
                 loading ?
                 <div className="fixed top-1/2 left-1/2 p-5 transform -translate-x-1/2 -translate-y-1/2">
