@@ -29,17 +29,17 @@ export default function NavBar () {
                         </p>
                     </NavLink>
                     <NavLink to='/projects' onClick={handleToggle} value="projects">
-                        <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("projects") && 'text-tertiary'}`}>
+                        <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("projects") && !location.includes("admin") && 'text-tertiary'}`}>
                             Mis Proyectos
                         </p>
                     </NavLink>
                     <NavLink to='/skills' onClick={handleToggle} value="skils">
-                        <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("skills") && 'text-tertiary'}`}>
+                        <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("skills") && !location.includes("admin") &&  'text-tertiary'}`}>
                             Skills
                         </p>
                     </NavLink>
                     <NavLink to='/contact' onClick={handleToggle} value="contact">
-                        <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("contact") && 'text-tertiary'}`}>
+                        <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("contact") && !location.includes("admin") &&  'text-tertiary'}`}>
                             Contacto
                         </p>
                     </NavLink>
