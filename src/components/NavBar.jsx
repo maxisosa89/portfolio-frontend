@@ -12,7 +12,7 @@ export default function NavBar () {
         }
     });
     return (
-        <nav className="flex items-center justify-between flex-wrap z-50 bg-primary p-6 fixed w-full">
+        <nav className="flex items-center justify-between flex-wrap z-50 bg-primary p-6 fixed w-full shadow-sm shadow-white">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
                 <span className="font-semibold text-xl tracking-tight">LOGO</span>
             </div>

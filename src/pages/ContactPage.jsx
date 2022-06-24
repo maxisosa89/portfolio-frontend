@@ -80,7 +80,6 @@ export default function ContactPage () {
     }, [errors, isSubmit, dataForm]);
     return (
         <div className="container relative mx-auto bg-tertiary pt-24">
-            <h1 className="text-5xl text-center text-white font-bold uppercase">Contacto</h1>
             {
                 loading ?
                 <div className="fixed top-1/2 left-1/2 p-5 transform -translate-x-1/2 -translate-y-1/2">
@@ -88,7 +87,7 @@ export default function ContactPage () {
                 </div> :
                 <form
                     onSubmit={handleSubmit}
-                    className="flex flex-wrap w-full max-w-[1024px] bg-secondary mx-auto p-10">
+                    className="flex flex-wrap w-full max-w-[1024px] bg-secondary mx-auto p-10 shadow-md shadow-primary">
                     <div className="w-full lg:w-1/2 px-3 py-3">
                         <label className="text-xl uppercase tracking-wide text-white font-bold mb-2" htmlFor="name">
                             Nombre
