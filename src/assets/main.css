@@ -679,6 +679,14 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(0 10 18 / var(--tw-border-opacity));
 }
+.border-red-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(127 29 29 / var(--tw-border-opacity));
+}
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
 .bg-secondary {
   --tw-bg-opacity: 1;
   background-color: rgb(38 50 56 / var(--tw-bg-opacity));
@@ -722,6 +730,10 @@ video {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 .pt-24 {
   padding-top: 6rem;
@@ -808,6 +820,10 @@ video {
 .hover\:text-tertiary:hover {
   --tw-text-opacity: 1;
   color: rgb(79 91 98 / var(--tw-text-opacity));
+}
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 @media (min-width: 640px) {
 

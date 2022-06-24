@@ -4,12 +4,15 @@ import Spinner from "../components/Spinner";
 
 export default function ContactPage () {
     const [loading, setLoading] = useState(false);
+    const [isSubmit, setIsSubmit] = useState(false);
+    const [errors, setErrors] = useState({});
     const [dataForm, setDataForm] = useState({
         name: '',
         mail: '',
         message: ''
     });
     function handleChange(e) {
+        document.getElementById(e.target.id)?.classList.remove("border-red-900")
         setDataForm({
             ...dataForm,
             [e.target.id]: e.target.value
@@ -25,19 +28,56 @@ export default function ContactPage () {
     };
     async function handleSubmit(e) {
         e.preventDefault();
+        setIsSubmit(true);
         setLoading(true);
-        await axios.post("http://localhost:3001/messages", dataForm);
-        handleClear(e);
-        document.getElementById("modalSucces").classList.remove("hidden");
+        if(Object.entries(errors).length === 0) {
+          await axios.post("http://localhost:3001/messages", dataForm);
+          handleClear(e);
+          document.getElementById("modalSucces").classList.remove("hidden");
+        } else {
+          setLoading(false);
+          alert("Completa el campo");
+        }
     };
     function handleCloseModal(e) {
         e.preventDefault();
         document.getElementById("modalSucces").classList.add("hidden");
+        setIsSubmit(false);
         setLoading(false);
     };
     useEffect(() => {
-        console.log(dataForm);
-    }, [dataForm])
+        function validate(data) {
+            const err = {};
+            if(!data.name) err.name = true;
+            if(!data.message) err.message = true;
+            if(!data.mail) {
+              err.mail = {
+                mail: true,
+              };
+            } else if(!validateEmail(data.mail)) {
+              err.mail = {
+                mailFormat: true,
+              };
+            };
+            return err;
+        };
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        };
+        setErrors(validate(dataForm))
+    }, [dataForm]);
+    useEffect(() => {
+        function handlePaintBox () {
+          Object.keys(dataForm)?.map(e => (
+            Object.keys(errors)?.includes(e) ?
+            document.getElementById(e)?.classList.add("border-red-500")
+            :
+            document.getElementById(e)?.classList.remove("border-red-500")
+          ))
+        };
+        isSubmit && handlePaintBox();
+    }, [errors, isSubmit, dataForm]);
     return (
         <div className="container relative mx-auto bg-tertiary pt-24">
             <h1 className="text-5xl text-center text-white font-bold uppercase">Contacto</h1>
@@ -46,15 +86,21 @@ export default function ContactPage () {
                 <div className="fixed top-1/2 left-1/2 p-5 transform -translate-x-1/2 -translate-y-1/2">
                     <Spinner />
                 </div> :
-                <form className="flex flex-wrap w-full max-w-[1024px] bg-secondary mx-auto p-10">
+                <form
+                    onSubmit={handleSubmit}
+                    className="flex flex-wrap w-full max-w-[1024px] bg-secondary mx-auto p-10">
                     <div className="w-full lg:w-1/2 px-3 py-3">
                         <label className="text-xl uppercase tracking-wide text-white font-bold mb-2" htmlFor="name">
                             Nombre
                         </label>
+                        {
+                          errors.name && <span className="text-white ml-2">* Requerido</span>
+                        }
                         <input
                             value={dataForm.name}
+                            autoComplete="off"
                             onChange={handleChange}
-                            className="appearance-none block w-full bg-tertiary text-white border border-white rounded py-3 px-4 leading-tight"
+                            className="appearance-none focus:outline-none block w-full bg-tertiary text-white border border-white rounded py-3 px-4 leading-tight"
                             id="name"
                             type="text"
                             placeholder="Nombre..." />
@@ -63,10 +109,17 @@ export default function ContactPage () {
                         <label className="text-xl uppercase tracking-wide text-white font-bold mb-2" htmlFor="mail">
                             Email
                         </label>
+                        {
+                          errors.mail?.mail && <span className="text-white ml-2">* Requerido</span>
+                        }
+                        {
+                          errors.mail?.mailFormat && <span className="text-white ml-2">* Ingrese un mail válido</span>
+                        }
                         <input
                             value={dataForm.mail}
+                            autoComplete="off"
                             onChange={handleChange}
-                            className="appearance-none block w-full bg-tertiary text-white border border-white rounded py-3 px-4 leading-tight"
+                            className="appearance-none focus:outline-none block w-full bg-tertiary text-white border border-white rounded py-3 px-4 leading-tight"
                             id="mail"
                             type="text"
                             placeholder="Email..." />
@@ -75,17 +128,21 @@ export default function ContactPage () {
                         <label className="text-xl uppercase tracking-wide text-white font-bold mb-2" htmlFor="message">
                             Mensaje
                         </label>
+                        {
+                          errors.message && <span className="text-white ml-2">* Requerido</span>
+                        }
                         <textarea
                             value={dataForm.message}
+                            autoComplete="off"
                             onChange={handleChange}
-                            className="appearance-none block w-full h-[200px] bg-tertiary text-white border border-white rounded py-3 px-4 leading-tight"
+                            className="appearance-none focus:outline-none block w-full h-[200px] bg-tertiary text-white border border-white rounded py-3 px-4 leading-tight"
                             id="message"
                             type="text"
                             placeholder="Mensaje..." />
                     </div>
                     <div className="w-full lg:w-1/2 px-3 py-3">
                         <button
-                            onClick={handleSubmit}
+                            type="submit"
                             className="w-full bg-secondary hover:bg-tertiary text-white border font-semibold border-white rounded py-3 px-4 leading-tight">
                                 Enviar
                         </button>
