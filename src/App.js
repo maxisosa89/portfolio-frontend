@@ -8,6 +8,7 @@ import SkillsPage from './pages/SkillsPage';
 import DetailProjectPage from './pages/DetailProjectPage';
 //Admin Pages
 import DashboardPage from './pages/admin/DashboardPage';
+import ListProjectsPage from './pages/admin/ListProjectsPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path= '/contact' element={<ContactPage />} />
         <Route path= '/skills' element={<SkillsPage />} />
         <Route path= '/admin/dashboard' element={<DashboardPage />} />
+        <Route path= '/admin/projects' element={<ListProjectsPage />} />
       </Routes>
     </BrowserRouter>
   );
