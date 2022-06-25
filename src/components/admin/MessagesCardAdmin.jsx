@@ -51,7 +51,7 @@ export default function MessagesCardAdmin({ message, handleRead, handleDelete, h
             </div>
             <hr className="my-2 mx-2 md:mx-5 border border-gray-400" />
             {/* Modal */}
-            <div id="modalDelete" className="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full sm:max-w-[400px] bg-secondary text-white border border-white rounded py-3 px-4">
+            <div id="modalDelete" className="hidden z-40 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full sm:max-w-[400px] bg-secondary text-white border border-white rounded py-3 px-4">
                 <div className="">
                     <h1>Eliminar mensaje</h1>
                 </div>
