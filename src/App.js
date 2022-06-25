@@ -10,6 +10,7 @@ import DetailProjectPage from './pages/DetailProjectPage';
 import DashboardPage from './pages/admin/DashboardPage';
 import ListProjectsPage from './pages/admin/ListProjectsPage';
 import ListMessagesPage from './pages/admin/ListMessagesPage';
+import ListTechsPage from './pages/admin/ListTechsPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path= '/admin/dashboard' element={<DashboardPage />} />
         <Route path= '/admin/projects' element={<ListProjectsPage />} />
         <Route path= '/admin/messages' element={<ListMessagesPage />} />
+        <Route path= '/admin/techs' element={<ListTechsPage />} />
       </Routes>
     </BrowserRouter>
   );
