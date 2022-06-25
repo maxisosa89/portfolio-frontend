@@ -16,6 +16,41 @@ export default function ListMessagesPage () {
         await axios.put(`http://localhost:3001/messages/${e.target.id}`)
         getAllMessages();
     };
+    async function handleDelete (e) {
+        e.preventDefault();
+        if (e.target.id !== "noDelete") {
+            setLoading(true);
+            await axios.delete(`http://localhost:3001/messages/${e.target.id}`);
+            getAllMessages();
+        } else {
+            document.getElementById("modalDelete")?.classList.add("hidden");
+            const blurDiv = document.getElementsByName("containerCardMessageList");
+            blurDiv.forEach(b => {
+                b.classList.toggle("blur-sm");
+            });
+            const btnsCards = document.getElementsByName("btnProjectCardAdmin");
+            btnsCards.forEach(b => {
+                b.removeAttribute("disabled");
+                b.classList.toggle("hover:bg-transparent");
+                b.classList.toggle("cursor-pointer");
+            });
+        }
+    };
+    function handleModal (e) {
+        e.preventDefault();
+        document.getElementById("modalDelete")?.classList.remove("hidden");
+        const blurDiv = document.getElementsByName("containerCardMessageList");
+        blurDiv.forEach(b => {
+            b.classList.toggle("blur-sm");
+        });
+        const btnsCards = document.getElementsByName("btnProjectCardAdmin");
+        btnsCards.forEach(b => {
+            b.setAttribute("disabled", "");
+            b.classList.toggle("hover:bg-transparent");
+            b.classList.toggle("cursor-pointer");
+        });
+        
+    };
     useEffect(() => {
         getAllMessages();
     }, []);
@@ -28,7 +63,7 @@ export default function ListMessagesPage () {
                 </div> :
                 messages?.map(m => (
                     <div key={m.id} className="my-5 mx-0 md:mx-5">
-                        <MessagesCard message={m} handleRead={handleRead} />
+                        <MessagesCard message={m} handleRead={handleRead} handleDelete={handleDelete} handleModal={handleModal} />
                     </div>
                 ))
             }
