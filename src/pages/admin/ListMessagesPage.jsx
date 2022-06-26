@@ -61,11 +61,19 @@ export default function ListMessagesPage () {
                 <div className="fixed top-1/2 left-1/2 p-5 transform -translate-x-1/2 -translate-y-1/2">
                     <Spinner />
                 </div> :
-                messages?.map(m => (
-                    <div key={m.id} className="my-5 mx-0 md:mx-5">
-                        <MessagesCard message={m} handleRead={handleRead} handleDelete={handleDelete} handleModal={handleModal} />
+                <div>
+                    <div className="flex justify-center">
+                        <button className="border border-white bg-secondary hover:bg-tertiary text-white font-semibold py-2 px-4 m-1 rounded-full">Todos (10)</button>
+                        <button className="border border-white bg-secondary hover:bg-tertiary text-white font-semibold py-2 px-4 m-1 rounded-full">No Leídos (5)</button>
                     </div>
-                ))
+                    {
+                        messages?.map(m => (
+                            <div key={m.id} className="my-5 mx-0 md:mx-5">
+                                <MessagesCard message={m} handleRead={handleRead} handleDelete={handleDelete} handleModal={handleModal} />
+                            </div>
+                        ))
+                    }
+                </div>
             }
         </div>
     )
