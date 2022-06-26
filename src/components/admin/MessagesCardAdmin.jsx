@@ -8,13 +8,13 @@ export default function MessagesCardAdmin({ message, handleRead, handleDelete, h
             <div name="containerCardMessageList" className="flex flex-wrap px-4 md:px-8 lg:px-16">
                 <div className="flex flex-wrap my-2 p-1 md:py-5 md:w-10/12 lg:w-11/12">
                     <div className="w-full my-2">
-                        <p>Fecha: {format(new Date(message.createdAt), "dd'/'MM'/'yyyy' - 'H':'mm")}</p>
+                        <p className={!message.read ? `font-bold` : undefined}>Fecha: {format(new Date(message.createdAt), "dd'/'MM'/'yyyy' - 'H':'mm")}</p>
                     </div>
                     <div className="w-full md:w-1/2 my-2 break-all">
-                        <p>De: {message.name}</p>
+                        <p className={!message.read ? `font-bold` : undefined}>De: {message.name}</p>
                     </div>
                     <div className="w-full md:w-1/2 my-2 break-all">
-                        <p>Mail: {message.mail}</p>
+                        <p className={!message.read ? `font-bold` : undefined}>Mail: {message.mail}</p>
                     </div>
                     <hr className="my-1 w-full border border-gray-500" />
                     <div className="w-full my-2 break-all">
