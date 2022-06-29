@@ -1,5 +1,5 @@
 import React from "react";
-export default function TechsCardAdmin({ tech }) {
+export default function TechsCardAdmin({ tech, setTechForm, handleForm }) {
     return (
         <div>
             <hr className="my-1 mx-5 border border-gray-400" />
@@ -15,10 +15,14 @@ export default function TechsCardAdmin({ tech }) {
                 <div className="w-full md:w-1/12 self-center">
                     <div className="flex md:inline justify-center">
                         <img
+                            id="editBtn"
                             src="https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656060522/Portfolio/iconos/edit_hjowes.png"
                             alt="Editar"
                             className="h-16 mx-2 md:my-2 border-4 border-blue-900 rounded cursor-pointer hover:bg-blue-500"
-                            onClick={e => console.log("editar")}
+                            onClick={e => {
+                                setTechForm(tech);
+                                handleForm(e);
+                            }}
                         />
                         <img
                             src="https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656060758/Portfolio/iconos/delete_g3pwe2.png"
