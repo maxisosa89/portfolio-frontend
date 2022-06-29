@@ -656,11 +656,17 @@ video {
 .w-12 {
   width: 3rem;
 }
+.w-48 {
+  width: 12rem;
+}
 .w-11 {
   width: 2.75rem;
 }
 .max-w-\[1024px\] {
   max-width: 1024px;
+}
+.max-w-\[400px\] {
+  max-width: 400px;
 }
 .flex-shrink-0 {
   flex-shrink: 0;
@@ -935,6 +941,10 @@ video {
 .hover\:bg-red-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+.hover\:bg-secondary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 50 56 / var(--tw-bg-opacity));
 }
 .hover\:bg-transparent:hover {
   background-color: transparent;
