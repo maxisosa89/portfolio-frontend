@@ -10,20 +10,28 @@ export default function ListTechsPage() {
     techImg: '',
     techTitle: ''
   });
+  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(true);
   const [openForm, setOpenForm] = useState(false);
   const getAllTechs = async () => {
-    setLoading(true);
-    const allT = await axios.get('http://localhost:3001/techs');
-    console.log(allT.data);
-    setTechs(allT.data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const allT = await axios.get('http://localhost:3001/techs');
+      setTechs(allT.data);
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
+    }
   };
   function handleForm(e) {
     e.preventDefault();
     (e.target.id === "addBtn" || e.target.id === "editBtn") && setOpenForm(true);
     if (e.target.id === "closeBtn") {
       setOpenForm(false);
+      setErrors({
+        ...errors,
+        fileImg: undefined
+      });
       setTechForm({
         techImg: '',
         techTitle: ''
@@ -31,18 +39,22 @@ export default function ListTechsPage() {
     };
   };
   async function handleSubmit(e) {
-    e.preventDefault();
-    if (!techForm.id) {
-      const techCreated = await axios.post("http://localhost:3001/techs", techForm);
-    } else {
-      const techEdited = await axios.put(`http://localhost:3001/techs/${techForm.id}`, techForm);
-    };
-    setTechForm({
-      techImg: '',
-      techTitle: ''
-    });
-    setOpenForm(false);
-    getAllTechs();
+    try {
+      e.preventDefault();
+        if (!techForm.id) {
+          await axios.post("http://localhost:3001/techs", {techTitle: techForm.techTitle.trim(), techImg: techForm.techImg});
+        } else {
+          await axios.put(`http://localhost:3001/techs/${techForm.id}`, {techTitle: techForm.techTitle.trim(), techImg: techForm.techImg});
+        };
+      setTechForm({
+        techImg: '',
+        techTitle: ''
+      });
+      setOpenForm(false);
+      getAllTechs();
+    } catch(e) {
+      console.log(e);
+    }
   };
   useEffect(() => {
     getAllTechs();
@@ -77,6 +89,8 @@ export default function ListTechsPage() {
               techForm={techForm}
               setTechForm={setTechForm}
               handleSubmit={handleSubmit}
+              errors={errors}
+              setErrors={setErrors}
             />
           </div>
       }
