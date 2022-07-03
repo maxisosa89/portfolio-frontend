@@ -12,6 +12,8 @@ module.exports = {
         sans: ['Oswald', 'sans-serif']
       },
       backgroundImage: {
+        'add': "url('https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656061619/Portfolio/iconos/add_oeqefo.png')",
+        'edit': "url('https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656060522/Portfolio/iconos/edit_hjowes.png')",
         'delete': "url('https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656060758/Portfolio/iconos/delete_g3pwe2.png')",
         'read': "url('https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656069390/Portfolio/iconos/read_i7fhfl.png')",
         'unread': "url('https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656069390/Portfolio/iconos/unread_janl1n.png')",

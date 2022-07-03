@@ -49,7 +49,6 @@ export default function ListMessagesPage () {
             b.classList.toggle("hover:bg-transparent");
             b.classList.toggle("cursor-pointer");
         });
-        
     };
     useEffect(() => {
         getAllMessages();

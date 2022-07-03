@@ -25,8 +25,22 @@ export default function ListTechsPage() {
   };
   function handleForm(e) {
     e.preventDefault();
-    (e.target.id === "addBtn" || e.target.id === "editBtn") && setOpenForm(true);
-    if (e.target.id === "closeBtn") {
+    if (e.target.id === "addBtn" || e.target.id === "editBtn"){
+      setOpenForm(true);
+      const blurDiv = document.getElementsByName("containerCardTechList");
+      blurDiv.forEach(b => {
+          b.classList.toggle("blur-sm");
+      });
+      const btnsCards = document.getElementsByName("btnTechCardAdmin");
+      btnsCards.forEach(b => {
+          b.setAttribute("disabled", "");
+          b.classList.toggle("hover:bg-transparent");
+          b.classList.toggle("cursor-pointer");
+      });;
+      document.getElementById("addBtn")?.setAttribute("disabled", "");
+      document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
+      document.getElementById("addBtn")?.classList.toggle("blur-sm");
+    } else if (e.target.id === "closeBtn") {
       setOpenForm(false);
       setErrors({
         ...errors,
@@ -36,7 +50,63 @@ export default function ListTechsPage() {
         techImg: '',
         techTitle: ''
       });
+      const blurDiv = document.getElementsByName("containerCardTechList");
+      blurDiv.forEach(b => {
+          b.classList.toggle("blur-sm");
+      });
+      const btnsCards = document.getElementsByName("btnTechCardAdmin");
+      btnsCards.forEach(b => {
+          b.removeAttribute("disabled", "");
+          b.classList.toggle("hover:bg-transparent");
+          b.classList.toggle("cursor-pointer");
+      });;
+      document.getElementById("addBtn")?.removeAttribute("disabled", "");
+      document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
+      document.getElementById("addBtn")?.classList.toggle("blur-sm");
     };
+  };
+  async function handleDelete (e) {
+    e.preventDefault();
+    if (e.target.id !== "noDelete") {
+        setLoading(true);
+        await axios.delete(`http://localhost:3001/techs/${e.target.id}`);
+        document.getElementById("addBtn")?.removeAttribute("disabled", "");
+        document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
+        document.getElementById("addBtn")?.classList.toggle("blur-sm");
+        getAllTechs();
+    } else {
+        document.getElementById("modalDelete")?.classList.add("hidden");
+        const blurDiv = document.getElementsByName("containerCardTechList");
+        blurDiv.forEach(b => {
+            b.classList.toggle("blur-sm");
+        });
+        const btnsCards = document.getElementsByName("btnTechCardAdmin");
+        btnsCards.forEach(b => {
+            b.removeAttribute("disabled");
+            b.classList.toggle("hover:bg-transparent");
+            b.classList.toggle("cursor-pointer");
+        });
+        document.getElementById("addBtn")?.removeAttribute("disabled", "");
+        document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
+        document.getElementById("addBtn")?.classList.toggle("blur-sm");
+    }
+  };
+  function handleModal (e) {
+      e.preventDefault();
+      document.getElementById("modalDelete")?.classList.remove("hidden");
+      const blurDiv = document.getElementsByName("containerCardTechList");
+      blurDiv.forEach(b => {
+          b.classList.toggle("blur-sm");
+      });
+      const btnsCards = document.getElementsByName("btnTechCardAdmin");
+      btnsCards.forEach(b => {
+          b.setAttribute("disabled", "");
+          b.classList.toggle("hover:bg-transparent");
+          b.classList.toggle("cursor-pointer");
+      });;
+      document.getElementById("addBtn")?.setAttribute("disabled", "");
+      document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
+      document.getElementById("addBtn")?.classList.toggle("blur-sm");
   };
   async function handleSubmit(e) {
     try {
@@ -50,6 +120,9 @@ export default function ListTechsPage() {
         techImg: '',
         techTitle: ''
       });
+      document.getElementById("addBtn")?.removeAttribute("disabled", "");
+      document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
+      document.getElementById("addBtn")?.classList.toggle("blur-sm");
       setOpenForm(false);
       getAllTechs();
     } catch(e) {
@@ -62,11 +135,10 @@ export default function ListTechsPage() {
   return (
     <div className="container mx-auto bg-tertiary pt-24">
       <div className="flex justify-center">
-        <img
+        <input
           id="addBtn"
-          src="https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656061619/Portfolio/iconos/add_oeqefo.png"
-          alt="Agregar"
-          className="relative inset-x-2 inset-y-px w-11 h-11 cursor-pointer"
+          type="button"
+          className="h-12 w-12 mx-2 my-2 self-center bg-add bg-tertiary bg-no-repeat bg-contain cursor-pointer"
           onClick={handleForm}
         />
       </div>
@@ -79,7 +151,13 @@ export default function ListTechsPage() {
             {
               techs?.map(t => (
                 <div key={t.id} className="my-5 mx-0 md:mx-5">
-                  <TechsCard tech={t} setTechForm={setTechForm} handleForm={handleForm} />
+                  <TechsCard
+                    tech={t}
+                    setTechForm={setTechForm}
+                    handleForm={handleForm}
+                    handleDelete={handleDelete}
+                    handleModal={handleModal}
+                  />
                 </div>
               ))
             }
