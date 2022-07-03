@@ -788,6 +788,12 @@ video {
 .bg-delete {
   background-image: url('https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656060758/Portfolio/iconos/delete_g3pwe2.png');
 }
+.bg-edit {
+  background-image: url('https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656060522/Portfolio/iconos/edit_hjowes.png');
+}
+.bg-add {
+  background-image: url('https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656061619/Portfolio/iconos/add_oeqefo.png');
+}
 .bg-contain {
   background-size: contain;
 }
