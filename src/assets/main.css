@@ -629,6 +629,9 @@ video {
 .h-48 {
   height: 12rem;
 }
+.h-full {
+  height: 100%;
+}
 .h-28 {
   height: 7rem;
 }
@@ -928,6 +931,9 @@ video {
 }
 .blur-sm {
   --tw-blur: blur(4px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .hover\:border-tertiary:hover {
