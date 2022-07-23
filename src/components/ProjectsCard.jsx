@@ -5,7 +5,7 @@ import Carousel from "./Carousel";
 export default function ProjectsCard ({project}) {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:h-96 bg-secondary shadow-md shadow-primary">
-            <Carousel project={project}/>
+            <Carousel project={project} heightCarousel={"h-96"}/>
             <div className="grid grid-cols-1 p-10 lg:col-span-2">
                 <h2 className="text-3xl uppercase m-1 text-white font-bold text-center">{project.projectTitle}</h2>
                 <p className="text-base m-1 my-5 text-white text-justify">{project.projectSummary}</p>
