@@ -11,7 +11,6 @@ export default function DetailProjectPage () {
     useEffect(() => {
         const getProject = async () => {
             const proj = await axios.get(`http://localhost:3001/projects/${id}`);
-            console.log(proj.data);
             setProject(proj.data);
             setLoading(false);
         };

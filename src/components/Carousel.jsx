@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function Carousel ({project}) {
+export default function Carousel ({project, heightCarousel}) {
     const [count, setCount] = useState(0);
     const [currentImg, setCurrentImg] = useState(project.projectImg[count]);
     function handleSlide(e) {
@@ -21,8 +21,8 @@ export default function Carousel ({project}) {
         setCurrentImg(project.projectImg[count]);
     }, [count, project.projectImg]);
     return (
-        <div className="relative grid h-96 w-full">
-            <img className="h-96 w-full object-cover" src={currentImg} alt="not found" />
+        <div className={`relative grid w-full ${heightCarousel}`}>
+            <img className={`w-full object-cover ${heightCarousel}`} src={currentImg} alt="not found" />
             <div className="flex justify-between self-end absolute w-full">
                 <button
                     className="w-10 h-10 m-2 border border-white bg-secondary hover:bg-tertiary text-white font-semibold text-2xl rounded-full"

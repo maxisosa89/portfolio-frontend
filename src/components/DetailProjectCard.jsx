@@ -13,7 +13,7 @@ export default function DetailProjectCard ({project}) {
                 </ NavLink>
                 <h1 className="flex justify-center items-center w-full text-4xl text-white font-semibold uppercase">{project.projectTitle}</h1>
             </div>
-            <Carousel project={project}/>
+            <Carousel project={project} heightCarousel={"h-96"}/>
             <div className="m-5 mt-10 text-2xl text-white font-bold">
                 <h3>Descripción</h3>
             </div>
