@@ -94,7 +94,7 @@ export default function ProjectsForm({ projectForm, setProjectForm, open = false
     e.preventDefault();
     setProjectForm({
       ...projectForm,
-      tech: projectForm.tech.filter(el => el.techTitle != e.target.value)
+      tech: projectForm.tech.filter(el => el.techTitle !== e.target.value)
     });
   };
   function handleChangeTechSelect(e) {
@@ -122,8 +122,8 @@ export default function ProjectsForm({ projectForm, setProjectForm, open = false
     });
     setTechFilter(techsAuxiliar);
     techsAuxiliar && setTechAdd(techsAuxiliar[0]);
-    if (document.getElementById("selectTechs").value) document.getElementById("selectTechs").value = JSON.stringify(techsAuxiliar[0]);
-  }, [projectForm]);
+    if (document.getElementById("selectTechs")) document.getElementById("selectTechs").value = JSON.stringify(techsAuxiliar[0]);
+  }, [projectForm, techs]);
   return (
     <div className={`w-full h-screen pt-24 overflow-auto z-40 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary border border-white rounded py-3 px-4 ${!open && 'hidden'}`}>
       <form className="flex flex-wrap justify-center">
@@ -269,50 +269,54 @@ export default function ProjectsForm({ projectForm, setProjectForm, open = false
           </div>
           <label className="w-full text-center text-white">Techs</label>
           <div className="flex w-full justify-center">
-            <div className="flex w-56 m-2 border border-white rounded">
-              <select
-                id="selectTechs"
-                className="focus:outline-none block w-full bg-tertiary text-white rounded py-3 px-4 leading-tight"
-                onChange={handleChangeTechSelect}
-              >
-                {
-                  techsFilter?.map(t => (
-                    <option
-                      key={t.techTitle}
-                      value={JSON.stringify(t)}
-                      className="w-full"
-                    >
-                      {t.techTitle}
-                    </option>
-                  ))
-                }
-              </select>
-              <button
-                className="bg-green-500 flex justify-center items-center py-3 px-4 text-white rounded"
-                onClick={handleAddTech}
-              >
-                +
-              </button>
-            </div>
+            {
+              techsFilter?.length ?
+              <div className="flex w-56 m-2 border border-white rounded">
+                <select
+                  id="selectTechs"
+                  className="focus:outline-none block w-full bg-tertiary text-white rounded py-3 px-4 leading-tight"
+                  onChange={handleChangeTechSelect}
+                >
+                  {
+                    techsFilter?.map(t => (
+                      <option
+                        key={t.techTitle}
+                        value={JSON.stringify(t)}
+                        className="w-full"
+                      >
+                        {t.techTitle}
+                      </option>
+                    ))
+                  }
+                </select>
+                <button
+                  className="bg-green-500 flex justify-center items-center py-3 px-4 text-white rounded"
+                  onClick={handleAddTech}
+                >
+                  +
+                </button>
+              </div> :
+              <span className="text-white">No hay tecnologías para agregar</span>
+            }
           </div>
           <div className="flex flex-wrap">
           {
             projectForm?.tech?.map(t => (
-                <div key={t.techTitle} className="flex m-2 border border-white rounded">
-                  <span
-                    id={`function-${t.techTitle}`}
-                    className="appearance-none focus:outline-none block w-full bg-tertiary text-white rounded py-3 px-4 leading-tight"
-                  >
-                    {t.techTitle}
-                  </span>
-                  <button
-                    className="bg-red-500 flex justify-center items-center py-3 px-4 text-white rounded"
-                    value={t.techTitle}
-                    onClick={handleDeleteTech}
-                  >
-                    X
-                  </button>
-                </div>
+              <div key={t.techTitle} className="flex m-2 border border-white rounded">
+                <span
+                  id={`function-${t.techTitle}`}
+                  className="appearance-none focus:outline-none block w-full bg-tertiary text-white rounded py-3 px-4 leading-tight"
+                >
+                  {t.techTitle}
+                </span>
+                <button
+                  className="bg-red-500 flex justify-center items-center py-3 px-4 text-white rounded"
+                  value={t.techTitle}
+                  onClick={handleDeleteTech}
+                >
+                  X
+                </button>
+              </div>
             ))
           }
           </div>
