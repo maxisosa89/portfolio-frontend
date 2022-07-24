@@ -15,7 +15,8 @@ export default function ListProjectsPage() {
     projectFunctions: [],
     siteUrl: '',
     frontUrl: '',
-    backUrl: ''
+    backUrl: '',
+    tech: []
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(true);
@@ -72,7 +73,8 @@ export default function ListProjectsPage() {
         projectFunctions: [],
         siteUrl: '',
         frontUrl: '',
-        backUrl: ''
+        backUrl: '',
+        tech: []
       });
       setNewFunction("");
       const blurDiv = document.getElementsByName("containerCardProjectList");
@@ -169,7 +171,8 @@ export default function ListProjectsPage() {
         projectFunctions: [],
         siteUrl: '',
         frontUrl: '',
-        backUrl: ''
+        backUrl: '',
+        tech: []
       });
       document.getElementById("addBtn")?.removeAttribute("disabled", "");
       document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
