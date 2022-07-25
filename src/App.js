@@ -6,6 +6,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import SkillsPage from './pages/SkillsPage';
 import DetailProjectPage from './pages/DetailProjectPage';
+import LoginPage from './pages/LoginPage';
 //Admin Pages
 import DashboardPage from './pages/admin/DashboardPage';
 import ListProjectsPage from './pages/admin/ListProjectsPage';
@@ -22,6 +23,7 @@ function App() {
         <Route path= '/about' element={<AboutPage />} />
         <Route path= '/contact' element={<ContactPage />} />
         <Route path= '/skills' element={<SkillsPage />} />
+        <Route path= '/login' element={<LoginPage />} />
         <Route path= '/admin/dashboard' element={<DashboardPage />} />
         <Route path= '/admin/projects' element={<ListProjectsPage />} />
         <Route path= '/admin/messages' element={<ListMessagesPage />} />
