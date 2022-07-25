@@ -5,6 +5,7 @@ import Spinner from "../../components/Spinner";
 
 export default function ListMessagesPage () {
     const [messages, setMessages] = useState();
+    const [idDelete, setIdDelete] = useState();
     const [loading, setLoading] = useState(true);
     const getAllMessages = async () => {
         const allM = await axios.get('http://localhost:3001/messages');
@@ -68,7 +69,13 @@ export default function ListMessagesPage () {
                     {
                         messages?.map(m => (
                             <div key={m.id} className="my-5 mx-0 md:mx-5">
-                                <MessagesCard message={m} handleRead={handleRead} handleDelete={handleDelete} handleModal={handleModal} />
+                                <MessagesCard
+                                    message={m}
+                                    idDelete={idDelete}
+                                    setIdDelete={setIdDelete}
+                                    handleRead={handleRead}
+                                    handleDelete={handleDelete}
+                                    handleModal={handleModal} />
                             </div>
                         ))
                     }

@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "../Carousel";
-export default function ProjectsCardAdmin({ project, setProjectForm, handleForm, handleDelete, handleModal }) {
+export default function ProjectsCardAdmin({ project, projectForm, setProjectForm, handleForm, handleDelete, handleModal }) {
     return (
         <div>
             <hr className="my-1 mx-5 border border-gray-400" />
@@ -31,7 +31,10 @@ export default function ProjectsCardAdmin({ project, setProjectForm, handleForm,
                         <input
                             type="button"
                             className="h-12 w-12 mx-2 my-2 border-4 border-red-900 rounded hover:bg-red-500 self-center bg-delete bg-no-repeat bg-contain cursor-pointer"
-                            onClick={handleModal}
+                            onClick={e => {
+                                setProjectForm(project);
+                                handleModal(e);
+                            }}
                             name="btnProjectCardAdmin"
                         />
                     </div>
@@ -51,7 +54,7 @@ export default function ProjectsCardAdmin({ project, setProjectForm, handleForm,
                 </div>
                 <div className="flex justify-center">
                     <button
-                        id={project.id}
+                        id={projectForm.id}
                         className="bg-secondary hover:bg-tertiary text-white border border-white rounded py-1 px-4 h-10"
                         onClick={handleDelete}>
                         SI

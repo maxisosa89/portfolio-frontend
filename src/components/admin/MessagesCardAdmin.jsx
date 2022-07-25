@@ -1,7 +1,7 @@
 import React from "react";
 import {format} from 'date-fns'
 
-export default function MessagesCardAdmin({ message, handleRead, handleDelete, handleModal }) {
+export default function MessagesCardAdmin({ message, idDelete, setIdDelete, handleRead, handleDelete, handleModal }) {
     return (
         <div>
             <hr className="my-1 mx-2 md:mx-5 border border-gray-400" />
@@ -43,7 +43,10 @@ export default function MessagesCardAdmin({ message, handleRead, handleDelete, h
                         <input
                             type="button"
                             className="h-12 w-12 mx-2 my-2 border-4 border-red-900 rounded hover:bg-red-500 self-center bg-delete bg-no-repeat bg-contain cursor-pointer"
-                            onClick={handleModal}
+                            onClick={e => {
+                                setIdDelete(message.id);
+                                handleModal(e);
+                            }}
                             name="btnProjectCardAdmin"
                         />
                     </div>
@@ -63,7 +66,7 @@ export default function MessagesCardAdmin({ message, handleRead, handleDelete, h
                 </div>
                 <div className="flex justify-center">
                     <button
-                        id={message.id}
+                        id={idDelete}
                         className="bg-secondary hover:bg-tertiary text-white border border-white rounded py-1 px-4 h-10"
                         onClick={handleDelete}>
                         SI
