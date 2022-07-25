@@ -22,10 +22,11 @@ export default function ListProjectsPage() {
   const [loading, setLoading] = useState(true);
   const [openForm, setOpenForm] = useState(false);
   const [newFunction, setNewFunction] = useState("");
+  const token = localStorage.getItem("tokenPortfolioMS");
   const getAllProjects = async () => {
     try {
       setLoading(true);
-      const allP = await axios.get('http://localhost:3001/projects');
+      const allP = await axios.get('http://localhost:3001/projects', { headers: { Authorization: token } });
       setProjects(allP.data);
       setLoading(false);
     } catch (e) {
@@ -35,7 +36,7 @@ export default function ListProjectsPage() {
   const getAllTechs = async () => {
     try {
       setLoading(true);
-      const allT = await axios.get('http://localhost:3001/techs');
+      const allT = await axios.get('http://localhost:3001/techs', { headers: { Authorization: token } });
       setTechs(allT.data);
       setLoading(false);
     } catch (e) {
@@ -96,7 +97,7 @@ export default function ListProjectsPage() {
     e.preventDefault();
     if (e.target.id !== "noDelete") {
         setLoading(true);
-        await axios.delete(`http://localhost:3001/projects/${e.target.id}`);
+        await axios.delete(`http://localhost:3001/projects/${e.target.id}`, { headers: { Authorization: token } });
         document.getElementById("addBtn")?.removeAttribute("disabled", "");
         document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
         document.getElementById("addBtn")?.classList.toggle("blur-sm");
@@ -161,7 +162,7 @@ export default function ListProjectsPage() {
                 frontUrl: projectForm.frontUrl,
                 backUrl: projectForm.backUrl,
                 tech: projectForm.tech
-            });
+            }, { headers: { Authorization: token } });
         } else {
           await axios.put(`http://localhost:3001/projects/${projectForm.id}`,
             {
@@ -174,7 +175,7 @@ export default function ListProjectsPage() {
                 frontUrl: projectForm.frontUrl,
                 backUrl: projectForm.backUrl,
                 tech: projectForm.tech
-            });
+            }, { headers: { Authorization: token } });
         };
       setProjectForm({
         projectTitle: '',
