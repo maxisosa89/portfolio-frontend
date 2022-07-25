@@ -117,6 +117,17 @@ export default function ListProjectsPage() {
         document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
         document.getElementById("addBtn")?.classList.toggle("blur-sm");
     }
+    setProjectForm({
+      projectTitle: '',
+      projectImg: [],
+      projectSummary: '',
+      projectDescription: '',
+      projectFunctions: [],
+      siteUrl: '',
+      frontUrl: '',
+      backUrl: '',
+      tech: []
+    });
   };
   function handleModal (e) {
       e.preventDefault();

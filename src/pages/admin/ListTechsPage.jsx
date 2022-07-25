@@ -74,6 +74,10 @@ export default function ListTechsPage() {
         document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
         document.getElementById("addBtn")?.classList.toggle("blur-sm");
         getAllTechs();
+        setTechForm({
+          techImg: '',
+          techTitle: ''
+        });
     } else {
         document.getElementById("modalDelete")?.classList.add("hidden");
         const blurDiv = document.getElementsByName("containerCardTechList");

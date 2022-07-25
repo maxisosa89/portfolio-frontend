@@ -36,6 +36,7 @@ export default function ListMessagesPage () {
                 b.classList.toggle("cursor-pointer");
             });
         }
+        setIdDelete("");
     };
     function handleModal (e) {
         e.preventDefault();
