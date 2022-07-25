@@ -153,6 +153,7 @@ export default function ListTechsPage() {
                 <div key={t.id} className="my-5 mx-0 md:mx-5">
                   <TechsCard
                     tech={t}
+                    techForm={techForm}
                     setTechForm={setTechForm}
                     handleForm={handleForm}
                     handleDelete={handleDelete}

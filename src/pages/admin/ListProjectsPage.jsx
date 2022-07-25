@@ -208,6 +208,7 @@ export default function ListProjectsPage() {
                 <div key={p.id} className="my-5 mx-0 md:mx-5">
                   <ProjectsCard
                     project={p}
+                    projectForm={projectForm}
                     setProjectForm={setProjectForm}
                     handleForm={handleForm}
                     handleDelete={handleDelete}

@@ -1,5 +1,5 @@
 import React from "react";
-export default function TechsCardAdmin({ tech, setTechForm, handleForm, handleDelete, handleModal }) {
+export default function TechsCardAdmin({ tech, techForm, setTechForm, handleForm, handleDelete, handleModal }) {
     return (
         <div>
             <hr className="my-1 mx-5 border border-gray-400" />
@@ -27,7 +27,10 @@ export default function TechsCardAdmin({ tech, setTechForm, handleForm, handleDe
                         <input
                             type="button"
                             className="h-12 w-12 mx-2 my-2 border-4 border-red-900 rounded hover:bg-red-500 self-center bg-delete bg-no-repeat bg-contain cursor-pointer"
-                            onClick={handleModal}
+                            onClick={e => {
+                                setTechForm(tech);
+                                handleModal(e);
+                            }}
                             name="btnTechCardAdmin"
                         />
                     </div>
@@ -47,7 +50,7 @@ export default function TechsCardAdmin({ tech, setTechForm, handleForm, handleDe
                 </div>
                 <div className="flex justify-center">
                     <button
-                        id={tech.id}
+                        id={techForm.id}
                         className="bg-secondary hover:bg-tertiary text-white border border-white rounded py-1 px-4 h-10"
                         onClick={handleDelete}>
                         SI
