@@ -159,7 +159,8 @@ export default function ListProjectsPage() {
                 projectFunctions: projectForm.projectFunctions,
                 siteUrl: projectForm.siteUrl,
                 frontUrl: projectForm.frontUrl,
-                backUrl: projectForm.backUrl
+                backUrl: projectForm.backUrl,
+                tech: projectForm.tech
             });
         } else {
           await axios.put(`http://localhost:3001/projects/${projectForm.id}`,
@@ -171,7 +172,8 @@ export default function ListProjectsPage() {
                 projectFunctions: projectForm.projectFunctions,
                 siteUrl: projectForm.siteUrl,
                 frontUrl: projectForm.frontUrl,
-                backUrl: projectForm.backUrl
+                backUrl: projectForm.backUrl,
+                tech: projectForm.tech
             });
         };
       setProjectForm({
