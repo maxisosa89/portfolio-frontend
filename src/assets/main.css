@@ -884,6 +884,9 @@ video {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+.pt-28 {
+  padding-top: 7rem;
+}
 .pt-24 {
   padding-top: 6rem;
 }

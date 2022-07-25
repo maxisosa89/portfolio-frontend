@@ -12,22 +12,23 @@ import DashboardPage from './pages/admin/DashboardPage';
 import ListProjectsPage from './pages/admin/ListProjectsPage';
 import ListMessagesPage from './pages/admin/ListMessagesPage';
 import ListTechsPage from './pages/admin/ListTechsPage';
+import PrivateRoute from './middlewares/auth'
 
 function App() {
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path= '/projects' element={<ProjectsPage />} />
-        <Route path= '/projects/:id' element={<DetailProjectPage />} />
-        <Route path= '/about' element={<AboutPage />} />
-        <Route path= '/contact' element={<ContactPage />} />
-        <Route path= '/skills' element={<SkillsPage />} />
-        <Route path= '/login' element={<LoginPage />} />
-        <Route path= '/admin/dashboard' element={<DashboardPage />} />
-        <Route path= '/admin/projects' element={<ListProjectsPage />} />
-        <Route path= '/admin/messages' element={<ListMessagesPage />} />
-        <Route path= '/admin/techs' element={<ListTechsPage />} />
+        <Route path='/projects' element={<ProjectsPage />} />
+        <Route path='/projects/:id' element={<DetailProjectPage />} />
+        <Route path='/about' element={<AboutPage />} />
+        <Route path='/contact' element={<ContactPage />} />
+        <Route path='/skills' element={<SkillsPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/admin/dashboard' element={<PrivateRoute Component={DashboardPage} />} />
+        <Route path='/admin/projects' element={<PrivateRoute Component={ListProjectsPage} />} />
+        <Route path='/admin/messages' element={<PrivateRoute Component={ListMessagesPage} />} />
+        <Route path='/admin/techs' element={<PrivateRoute Component={ListTechsPage} />} />
       </Routes>
     </BrowserRouter>
   );
