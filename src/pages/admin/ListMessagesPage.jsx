@@ -3,8 +3,8 @@ import axios from "axios";
 import MessagesCard from "../../components/admin/MessagesCardAdmin";
 import Spinner from "../../components/Spinner";
 
-const token = localStorage.getItem("tokenPortfolioMS");
 export default function ListMessagesPage () {
+    const token = localStorage.getItem("tokenPortfolioMS");
     const [messages, setMessages] = useState();
     const [idDelete, setIdDelete] = useState();
     const [loading, setLoading] = useState(true);

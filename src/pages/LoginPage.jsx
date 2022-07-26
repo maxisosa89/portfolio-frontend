@@ -21,6 +21,7 @@ export default function LoginPage() {
     e.preventDefault()
     const data = await axios.post("http://localhost:3001/login", input);
     localStorage.setItem("tokenPortfolioMS", `Bearer ${data.data.token}`);
+    window.dispatchEvent(new Event('storage'));
     navigate("/admin/dashboard");
   };
   useEffect(() => {
