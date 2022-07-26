@@ -4,8 +4,8 @@ import TechsCard from "../../components/admin/TechsCardAdmin";
 import TechsForm from "../../components/admin/TechsForm";
 import Spinner from "../../components/Spinner";
 
-const token = localStorage.getItem("tokenPortfolioMS");
 export default function ListTechsPage() {
+  const token = localStorage.getItem("tokenPortfolioMS");
   const [techs, setTechs] = useState();
   const [techForm, setTechForm] = useState({
     techImg: '',
