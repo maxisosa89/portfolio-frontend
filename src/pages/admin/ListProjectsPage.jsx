@@ -3,7 +3,7 @@ import axios from "axios";
 import ProjectsCard from "../../components/admin/ProjectsCardAdmin";
 import ProjectsForm from "../../components/admin/ProjectsForm";
 import Spinner from "../../components/Spinner";
-
+const token = localStorage.getItem("tokenPortfolioMS");
 export default function ListProjectsPage() {
   const [projects, setProjects] = useState();
   const [techs, setTechs] = useState();
@@ -22,7 +22,6 @@ export default function ListProjectsPage() {
   const [loading, setLoading] = useState(true);
   const [openForm, setOpenForm] = useState(false);
   const [newFunction, setNewFunction] = useState("");
-  const token = localStorage.getItem("tokenPortfolioMS");
   const getAllProjects = async () => {
     try {
       setLoading(true);

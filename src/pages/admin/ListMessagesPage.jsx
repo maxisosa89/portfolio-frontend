@@ -3,11 +3,11 @@ import axios from "axios";
 import MessagesCard from "../../components/admin/MessagesCardAdmin";
 import Spinner from "../../components/Spinner";
 
+const token = localStorage.getItem("tokenPortfolioMS");
 export default function ListMessagesPage () {
     const [messages, setMessages] = useState();
     const [idDelete, setIdDelete] = useState();
     const [loading, setLoading] = useState(true);
-    const token = localStorage.getItem("tokenPortfolioMS");
     const getAllMessages = async () => {
         const allM = await axios.get('http://localhost:3001/messages', { headers: { Authorization: token } });
         setMessages(allM.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));

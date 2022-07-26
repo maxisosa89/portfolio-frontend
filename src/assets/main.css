@@ -843,11 +843,11 @@ video {
 .p-10 {
   padding: 2.5rem;
 }
-.p-2 {
-  padding: 0.5rem;
-}
 .p-5 {
   padding: 1.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
 }
 .p-1 {
   padding: 0.25rem;
@@ -883,9 +883,6 @@ video {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-.pt-28 {
-  padding-top: 7rem;
 }
 .pt-24 {
   padding-top: 6rem;
