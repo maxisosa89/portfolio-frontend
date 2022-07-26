@@ -23,22 +23,22 @@ export default function LoginPage() {
     localStorage.setItem("tokenPortfolioMS", `Bearer ${data.data.token}`);
     navigate("/admin/dashboard");
   };
-  async function getToken() {
-    try {
-        const token = localStorage.getItem("tokenPortfolioMS");
-        const validateToken = await axios.get('http://localhost:3001/messages', { headers: { Authorization: token } });
-        if (validateToken.status === 200) {
-          navigate("/admin/dashboard");
-        };
-        setLoading(false);
-    } catch (e) {
-        console.log(e);
-        setLoading(false);
-    };
-  };
   useEffect(() => {
+      async function getToken() {
+        try {
+            const token = localStorage.getItem("tokenPortfolioMS");
+            const validateToken = await axios.get('http://localhost:3001/messages', { headers: { Authorization: token } });
+            if (validateToken.status === 200) {
+              navigate("/admin/dashboard");
+            };
+            setLoading(false);
+        } catch (e) {
+            console.log(e);
+            setLoading(false);
+        };
+      };
       getToken()
-  }, []);
+  }, [navigate]);
   return (
     <div className="flex justify-center container mx-auto bg-tertiary py-24">
       {

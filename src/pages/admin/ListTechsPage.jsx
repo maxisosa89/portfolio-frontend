@@ -4,6 +4,7 @@ import TechsCard from "../../components/admin/TechsCardAdmin";
 import TechsForm from "../../components/admin/TechsForm";
 import Spinner from "../../components/Spinner";
 
+const token = localStorage.getItem("tokenPortfolioMS");
 export default function ListTechsPage() {
   const [techs, setTechs] = useState();
   const [techForm, setTechForm] = useState({
@@ -13,7 +14,6 @@ export default function ListTechsPage() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(true);
   const [openForm, setOpenForm] = useState(false);
-  const token = localStorage.getItem("tokenPortfolioMS");
   const getAllTechs = async () => {
     try {
       setLoading(true);
