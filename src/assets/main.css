@@ -534,6 +534,9 @@ video {
 .m-4 {
   margin: 1rem;
 }
+.m-0 {
+  margin: 0px;
+}
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -672,6 +675,12 @@ video {
 }
 .w-16 {
   width: 4rem;
+}
+.w-\[210px\] {
+  width: 210px;
+}
+.w-\[279px\] {
+  width: 279px;
 }
 .w-12 {
   width: 3rem;
@@ -1011,6 +1020,14 @@ video {
   outline-offset: 2px;
 }
 @media (min-width: 640px) {
+
+  .sm\:m-5 {
+    margin: 1.25rem;
+  }
+
+  .sm\:w-1\/2 {
+    width: 50%;
+  }
 
   .sm\:w-40 {
     width: 10rem;
