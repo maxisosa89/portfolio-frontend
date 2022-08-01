@@ -19,7 +19,7 @@ export default function LoginPage() {
   };
   async function handleSubmit(e) {
     e.preventDefault()
-    const data = await axios.post("http://localhost:3001/login", input);
+    const data = await axios.post("/login", input);
     localStorage.setItem("tokenPortfolioMS", `Bearer ${data.data.token}`);
     window.dispatchEvent(new Event('storage'));
     navigate("/admin/dashboard");
@@ -28,7 +28,7 @@ export default function LoginPage() {
       async function getToken() {
         try {
             const token = localStorage.getItem("tokenPortfolioMS");
-            const validateToken = await axios.get('http://localhost:3001/messages', { headers: { Authorization: token } });
+            const validateToken = await axios.get('/messages', { headers: { Authorization: token } });
             if (validateToken.status === 200) {
               navigate("/admin/dashboard");
             };

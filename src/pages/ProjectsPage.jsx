@@ -7,7 +7,7 @@ export default function ProjectsPage () {
     const [projects, setProjects] = useState();
     const [loading, setLoading] = useState(true);
     const getAllProjects = async () => {
-        const allP = await axios.get('http://localhost:3001/projects');
+        const allP = await axios.get('/projects');
         setProjects(allP.data);
         setLoading(false);
     };

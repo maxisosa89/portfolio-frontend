@@ -26,7 +26,7 @@ export default function NavBar() {
   async function getToken() {
     try {
         const token = localStorage.getItem("tokenPortfolioMS");
-        const validateToken = await axios.get('http://localhost:3001/messages', { headers: { Authorization: token } });
+        const validateToken = await axios.get('/messages', { headers: { Authorization: token } });
         if (validateToken.status === 200) {
           setAuth(true);
         };

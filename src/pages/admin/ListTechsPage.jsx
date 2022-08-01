@@ -17,7 +17,7 @@ export default function ListTechsPage() {
   const getAllTechs = async () => {
     try {
       setLoading(true);
-      const allT = await axios.get('http://localhost:3001/techs', { headers: { Authorization: token } });
+      const allT = await axios.get('/techs', { headers: { Authorization: token } });
       setTechs(allT.data);
       setLoading(false);
     } catch (e) {
@@ -70,7 +70,7 @@ export default function ListTechsPage() {
     e.preventDefault();
     if (e.target.id !== "noDelete") {
         setLoading(true);
-        await axios.delete(`http://localhost:3001/techs/${e.target.id}`, { headers: { Authorization: token } });
+        await axios.delete(`/techs/${e.target.id}`, { headers: { Authorization: token } });
         document.getElementById("addBtn")?.removeAttribute("disabled", "");
         document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
         document.getElementById("addBtn")?.classList.toggle("blur-sm");
@@ -117,9 +117,9 @@ export default function ListTechsPage() {
     try {
       e.preventDefault();
         if (!techForm.id) {
-          await axios.post("http://localhost:3001/techs", {techTitle: techForm.techTitle.trim(), techImg: techForm.techImg}, { headers: { Authorization: token } });
+          await axios.post("/techs", {techTitle: techForm.techTitle.trim(), techImg: techForm.techImg}, { headers: { Authorization: token } });
         } else {
-          await axios.put(`http://localhost:3001/techs/${techForm.id}`, {techTitle: techForm.techTitle.trim(), techImg: techForm.techImg}, { headers: { Authorization: token } });
+          await axios.put(`/techs/${techForm.id}`, {techTitle: techForm.techTitle.trim(), techImg: techForm.techImg}, { headers: { Authorization: token } });
         };
       setTechForm({
         techImg: '',

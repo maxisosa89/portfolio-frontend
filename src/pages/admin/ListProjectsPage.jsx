@@ -26,7 +26,7 @@ export default function ListProjectsPage() {
   const getAllProjects = async () => {
     try {
       setLoading(true);
-      const allP = await axios.get('http://localhost:3001/projects', { headers: { Authorization: token } });
+      const allP = await axios.get('/projects', { headers: { Authorization: token } });
       setProjects(allP.data);
       setLoading(false);
     } catch (e) {
@@ -36,7 +36,7 @@ export default function ListProjectsPage() {
   const getAllTechs = async () => {
     try {
       setLoading(true);
-      const allT = await axios.get('http://localhost:3001/techs', { headers: { Authorization: token } });
+      const allT = await axios.get('/techs', { headers: { Authorization: token } });
       setTechs(allT.data);
       setLoading(false);
     } catch (e) {
@@ -97,7 +97,7 @@ export default function ListProjectsPage() {
     e.preventDefault();
     if (e.target.id !== "noDelete") {
         setLoading(true);
-        await axios.delete(`http://localhost:3001/projects/${e.target.id}`, { headers: { Authorization: token } });
+        await axios.delete(`/projects/${e.target.id}`, { headers: { Authorization: token } });
         document.getElementById("addBtn")?.removeAttribute("disabled", "");
         document.getElementById("addBtn")?.classList.toggle("cursor-pointer");
         document.getElementById("addBtn")?.classList.toggle("blur-sm");
@@ -151,7 +151,7 @@ export default function ListProjectsPage() {
     try {
       e.preventDefault();
         if (!projectForm.id) {
-          await axios.post("http://localhost:3001/projects",
+          await axios.post("/projects",
             {
                 projectTitle: projectForm.projectTitle.trim(),
                 projectImg: projectForm.projectImg,
@@ -164,7 +164,7 @@ export default function ListProjectsPage() {
                 tech: projectForm.tech
             }, { headers: { Authorization: token } });
         } else {
-          await axios.put(`http://localhost:3001/projects/${projectForm.id}`,
+          await axios.put(`/projects/${projectForm.id}`,
             {
                 projectTitle: projectForm.projectTitle.trim(),
                 projectImg: projectForm.projectImg,

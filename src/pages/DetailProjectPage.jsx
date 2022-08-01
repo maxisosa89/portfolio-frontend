@@ -10,7 +10,7 @@ export default function DetailProjectPage () {
     const [{id}] = useState(useParams());
     useEffect(() => {
         const getProject = async () => {
-            const proj = await axios.get(`http://localhost:3001/projects/${id}`);
+            const proj = await axios.get(`/projects/${id}`);
             setProject(proj.data);
             setLoading(false);
         };
