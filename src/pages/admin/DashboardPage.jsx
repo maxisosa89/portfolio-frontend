@@ -11,9 +11,9 @@ export default function DashboardPage () {
     const [loading, setLoading] = useState(true);
     async function getData(){
         const token = localStorage.getItem("tokenPortfolioMS");
-        const m = await axios.get('http://localhost:3001/messages', { headers: { Authorization: token } });
-        const p = await axios.get('http://localhost:3001/projects');
-        const t = await axios.get('http://localhost:3001/techs');
+        const m = await axios.get('/messages', { headers: { Authorization: token } });
+        const p = await axios.get('/projects');
+        const t = await axios.get('/techs');
         setMessages(m.data.length);
         setUnreadMessages(m.data.filter(m => !m.read).length);
         setProjects(p.data.length);

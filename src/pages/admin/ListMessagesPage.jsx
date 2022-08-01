@@ -10,20 +10,20 @@ export default function ListMessagesPage() {
   const [idDelete, setIdDelete] = useState();
   const [loading, setLoading] = useState(true);
   const getAllMessages = async () => {
-    const allM = await axios.get('http://localhost:3001/messages', { headers: { Authorization: token } });
+    const allM = await axios.get('/messages', { headers: { Authorization: token } });
     setMessages(allM.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
     setLoading(false);
   };
   async function handleRead(e) {
     e.preventDefault();
-    await axios.put(`http://localhost:3001/messages/${e.target.id}`, {}, { headers: { Authorization: token } })
+    await axios.put(`/messages/${e.target.id}`, {}, { headers: { Authorization: token } })
     getAllMessages();
   };
   async function handleDelete(e) {
     e.preventDefault();
     if (e.target.id !== "noDelete") {
       setLoading(true);
-      await axios.delete(`http://localhost:3001/messages/${e.target.id}`, { headers: { Authorization: token } });
+      await axios.delete(`/messages/${e.target.id}`, { headers: { Authorization: token } });
       getAllMessages();
     } else {
       document.getElementById("modalDelete")?.classList.add("hidden");

@@ -31,7 +31,7 @@ export default function ContactPage() {
     setIsSubmit(true);
     setLoading(true);
     if (Object.entries(errors).length === 0) {
-      await axios.post("http://localhost:3001/messages", dataForm);
+      await axios.post("/messages", dataForm);
       handleClear(e);
       document.getElementById("modalSucces").classList.remove("hidden");
       setIsSubmit(false);
