@@ -8,7 +8,7 @@ export default function ProjectsPage () {
     const [loading, setLoading] = useState(true);
     const getAllProjects = async () => {
         const allP = await axios.get('/projects');
-        setProjects(allP.data);
+        setProjects(allP.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
         setLoading(false);
     };
     useEffect(() => {

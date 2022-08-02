@@ -27,7 +27,7 @@ export default function ListProjectsPage() {
     try {
       setLoading(true);
       const allP = await axios.get('/projects', { headers: { Authorization: token } });
-      setProjects(allP.data);
+      setProjects(allP.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
       setLoading(false);
     } catch (e) {
       console.log(e);
