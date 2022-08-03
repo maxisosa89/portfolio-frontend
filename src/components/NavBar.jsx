@@ -21,7 +21,7 @@ export default function NavBar() {
     e.preventDefault();
     setAuth(false);
     localStorage.removeItem("tokenPortfolioMS");
-    navigate('/about');
+    navigate('/');
   };
   async function getToken() {
     try {
@@ -50,9 +50,9 @@ export default function NavBar() {
       </div>
       <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" id="containerData">
         <div className="text-sm lg:flex-grow">
-          <NavLink to='/about' onClick={handleToggle} value="about">
-            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("about") && 'text-tertiary'}`}>
-              Sobre mí
+          <NavLink to='/' onClick={handleToggle} value="home">
+            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location === "/" && 'text-tertiary'}`}>
+              Home
             </p>
           </NavLink>
           <NavLink to='/projects' onClick={handleToggle} value="projects">
