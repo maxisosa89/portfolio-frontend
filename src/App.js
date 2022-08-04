@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
-import SkillsPage from './pages/SkillsPage';
+import AboutPage from './pages/AboutPage';
 import DetailProjectPage from './pages/DetailProjectPage';
 import LoginPage from './pages/LoginPage';
 //Admin Pages
@@ -24,7 +24,7 @@ function App() {
         <Route path='/projects' element={<ProjectsPage />} />
         <Route path='/projects/:id' element={<DetailProjectPage />} />
         <Route path='/contact' element={<ContactPage />} />
-        <Route path='/skills' element={<SkillsPage />} />
+        <Route path='/about' element={<AboutPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/admin/dashboard' element={<PrivateRoute Component={DashboardPage} />} />
         <Route path='/admin/projects' element={<PrivateRoute Component={ListProjectsPage} />} />

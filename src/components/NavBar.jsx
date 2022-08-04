@@ -60,9 +60,9 @@ export default function NavBar() {
               Mis Proyectos
             </p>
           </NavLink>
-          <NavLink to='/skills' onClick={handleToggle} value="skils">
-            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("skills") && !location.includes("admin") && 'text-tertiary'}`}>
-              Skills
+          <NavLink to='/about' onClick={handleToggle} value="skils">
+            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("about") && !location.includes("admin") && 'text-tertiary'}`}>
+              Sobre mí
             </p>
           </NavLink>
           <NavLink to='/contact' onClick={handleToggle} value="contact">
