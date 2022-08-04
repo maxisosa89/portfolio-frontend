@@ -14,6 +14,8 @@ import ListMessagesPage from './pages/admin/ListMessagesPage';
 import ListTechsPage from './pages/admin/ListTechsPage';
 import HomePageEdit from './pages/admin/HomePageEdit';
 import PrivateRoute from './middlewares/auth';
+//NotFound Page
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
         <Route path='/admin/messages' element={<PrivateRoute Component={ListMessagesPage} />} />
         <Route path='/admin/techs' element={<PrivateRoute Component={ListTechsPage} />} />
         <Route path='/admin/home' element={<PrivateRoute Component={HomePageEdit} />} />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
