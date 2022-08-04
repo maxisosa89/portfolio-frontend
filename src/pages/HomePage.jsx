@@ -43,7 +43,7 @@ export default function HomePage() {
               <button
                 className="border border-white bg-secondary hover:bg-tertiary text-white font-semibold py-2 px-4 lg:px-2 m-1 mx-auto sm:mx-1 rounded-full w-full md:w-2/5 lg:w-1/5"
               >
-                Skills
+                Sobre mí
               </button>
             </NavLink>
             <NavLink to="/contact">
