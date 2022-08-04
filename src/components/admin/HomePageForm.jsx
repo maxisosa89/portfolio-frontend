@@ -18,7 +18,7 @@ export default function HomePageForm({ homePageData, setHomePageData, token }) {
     navigate('/admin/dashboard');
   };
   return (
-    <div className={`w-full max-w-[400px] z-40 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary border border-white rounded py-3 px-4`}>
+    <div className={`flex flex-wrap w-full max-w-[1024px] bg-secondary mx-auto p-2 sm:p-10 shadow-md shadow-primary`}>
       <form className="flex flex-wrap justify-center">
         <div className="flex flex-wrap justify-center w-full">
           <input

@@ -537,6 +537,9 @@ video {
 .m-4 {
   margin: 1rem;
 }
+.m-0 {
+  margin: 0px;
+}
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -862,6 +865,9 @@ video {
 .p-2 {
   padding: 0.5rem;
 }
+.p-0 {
+  padding: 0px;
+}
 .p-1 {
   padding: 0.25rem;
 }
@@ -1038,6 +1044,10 @@ video {
     margin: 1.25rem;
   }
 
+  .sm\:m-2 {
+    margin: 0.5rem;
+  }
+
   .sm\:mx-1 {
     margin-left: 0.25rem;
     margin-right: 0.25rem;
@@ -1053,6 +1063,10 @@ video {
 
   .sm\:max-w-\[400px\] {
     max-width: 400px;
+  }
+
+  .sm\:p-10 {
+    padding: 2.5rem;
   }
 }
 @media (min-width: 768px) {
