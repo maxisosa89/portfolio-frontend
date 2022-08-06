@@ -16,9 +16,6 @@ export default function AboutPage() {
   useEffect(() => {
     getAboutData();
   }, []);
-  useEffect(() => {
-    console.log("ABOUT: ", about);
-  }, [about]);
   return (
     <div className="flex justify-center h-screen container mx-auto bg-tertiary py-24">
     {
@@ -74,7 +71,7 @@ export default function AboutPage() {
                       src={f.url.slice(0, -3)+"jpg"}
                       alt="Not Found"
                       width={f.width}
-                      className="max-w-[280px]"
+                      className="max-w-[250px]"
                     />
                     <span className="absolute flex bottom-1/2 w-full h-10 bg-tertiary justify-center opacity-80">
                       <img
