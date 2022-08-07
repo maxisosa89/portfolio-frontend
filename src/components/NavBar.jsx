@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 export default function NavBar() {
   const location = useLocation().pathname;
@@ -23,17 +23,19 @@ export default function NavBar() {
     localStorage.removeItem("tokenPortfolioMS");
     navigate('/');
   };
-  async function getToken() {
+  function getToken() {
     try {
-        const token = localStorage.getItem("tokenPortfolioMS");
-        const validateToken = await axios.get('/messages', { headers: { Authorization: token } });
-        if (validateToken.status === 200) {
-          setAuth(true);
-        };
-    } catch (e) {
-        console.log(e);
+      const token = localStorage.getItem("tokenPortfolioMS");
+      const decoded = jwt_decode(token);
+      const current_time = new Date().getTime() / 1000;
+	    if (current_time > decoded.exp) {
         setAuth(false);
-    };
+      } else {
+        setAuth(true);
+      }
+    } catch(e){
+      setAuth(false);
+    }
   };
   useEffect(() => {
     getToken();
