@@ -36,7 +36,13 @@ export default function AboutPage() {
             <ul>
               {
                 techs?.map(t => (
-                  <li key={t.id}>{t.techTitle}</li>
+                  <li key={t.id}>
+                    <div key={t.techTitle} className="flex text-base text-white ml-5">
+                      <img src={t.techImg} alt="Not found" 
+                      className="h-5 w-5" />
+                      <p className="ml-2">{t.techTitle}</p>
+                    </div>
+                  </li>
                 ))
               }
             </ul>
