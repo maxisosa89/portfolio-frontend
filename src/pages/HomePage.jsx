@@ -25,7 +25,7 @@ export default function HomePage() {
         <div className="fixed top-1/2 left-1/2 p-5 transform -translate-x-1/2 -translate-y-1/2">
           <Spinner />
         </div> :
-        <div className="border bg-secondary m-auto text-white mx-2 md:mx-6 lg:mx-12 p-2 md:p-6 lg:p-12 min-w-full md:min-w-[600px]">
+        <div className="bg-secondary m-auto text-white mx-2 md:mx-6 lg:mx-12 p-2 md:p-6 lg:p-12 min-w-full md:min-w-[600px] shadow-md shadow-primary">
           <h1 className="text-5xl m-5">
             {homePageData.homeTitle || "Título"}
           </h1>

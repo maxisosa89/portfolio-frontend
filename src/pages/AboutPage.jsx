@@ -23,7 +23,7 @@ export default function AboutPage() {
       <div className="fixed top-1/2 left-1/2 p-5 transform -translate-x-1/2 -translate-y-1/2">
         <Spinner />
       </div> :
-      <div className="border bg-secondary m-auto text-white mx-auto md:mx-6 lg:mx-12 p-2 md:p-6 lg:p-12">
+      <div className="bg-secondary m-auto text-white mx-auto md:mx-6 lg:mx-12 p-2 md:p-6 lg:p-12 shadow-md shadow-primary">
         <div className="m-1 sm:m-5">
           <h1 className="text-5xl">Sobre mí</h1>
           <p className="mt-10">
