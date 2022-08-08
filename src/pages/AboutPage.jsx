@@ -25,19 +25,19 @@ export default function AboutPage() {
       </div> :
       <div className="border bg-secondary m-auto text-white mx-auto md:mx-6 lg:mx-12 p-2 md:p-6 lg:p-12">
         <div className="m-1 sm:m-5">
-          <h1 className="text-5xl">Habilidades</h1>
-          <p>
+          <h1 className="text-5xl">Sobre mí</h1>
+          <p className="mt-10">
             {about?.description}
           </p>
         </div>
         <div className="m-1 sm:m-5 flex flex-wrap text-center">
           <div className=" w-full sm:w-1/2">
-            <h3>Hard skills:</h3>
+            <h3 className="my-4">Hard skills:</h3>
             <ul>
               {
                 techs?.map(t => (
                   <li key={t.id}>
-                    <div key={t.techTitle} className="flex text-base text-white ml-5">
+                    <div className="flex justify-center text-base text-white ml-5">
                       <img src={t.techImg} alt="Not found" 
                       className="h-5 w-5" />
                       <p className="ml-2">{t.techTitle}</p>
@@ -48,7 +48,7 @@ export default function AboutPage() {
             </ul>
           </div>
           <div className=" w-full sm:w-1/2">
-            <h3>Soft skills:</h3>
+            <h3 className="my-4">Soft skills:</h3>
             <ul>
               {
                 about?.softSkills?.map((s, index) => (
@@ -59,7 +59,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="m-1 sm:m-5">
-            <h3>Sub Habilidades:</h3>
+            <h3 className="my-4">Otras habilidades:</h3>
             <ul>
                 {
                   about?.subSkills?.map((s, index) => (
