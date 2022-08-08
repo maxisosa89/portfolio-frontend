@@ -25,14 +25,14 @@ export default function AboutPage() {
       </div> :
       <div className="bg-secondary m-auto text-white mx-auto md:mx-6 lg:mx-12 p-2 md:p-6 lg:p-12 shadow-md shadow-primary">
         <div className="m-1 sm:m-5">
-          <h1 className="text-5xl">Sobre mí</h1>
-          <p className="mt-10">
+          <h1 className="text-5xl font-helvetica">Sobre mí</h1>
+          <p className="mt-10 font-roboto">
             {about?.description}
           </p>
         </div>
         <div className="m-1 sm:m-5 flex flex-wrap text-center">
           <div className=" w-full sm:w-1/2">
-            <h3 className="my-4">Hard skills:</h3>
+            <h3 className="my-4 font-calibri text-3xl">Hard skills:</h3>
             <ul>
               {
                 techs?.map(t => (
@@ -40,7 +40,7 @@ export default function AboutPage() {
                     <div className="flex justify-center text-base text-white ml-5">
                       <img src={t.techImg} alt="Not found" 
                       className="h-5 w-5" />
-                      <p className="ml-2">{t.techTitle}</p>
+                      <p className="ml-2 font-roboto">{t.techTitle}</p>
                     </div>
                   </li>
                 ))
@@ -48,22 +48,22 @@ export default function AboutPage() {
             </ul>
           </div>
           <div className=" w-full sm:w-1/2">
-            <h3 className="my-4">Soft skills:</h3>
+            <h3 className="my-4 font-calibri text-3xl">Soft skills:</h3>
             <ul>
               {
                 about?.softSkills?.map((s, index) => (
-                  <li key={`${s}-${index}`}>{s}</li>
+                  <li key={`${s}-${index}`}><p className="font-roboto">{s}</p></li>
                 ))
               }
             </ul>
           </div>
         </div>
         <div className="m-1 sm:m-5">
-            <h3 className="my-4">Otras habilidades:</h3>
+            <h3 className="my-4 font-calibri text-3xl">Otras habilidades:</h3>
             <ul>
                 {
                   about?.subSkills?.map((s, index) => (
-                    <li key={`${s}-${index}`}>{s}</li>
+                    <li key={`${s}-${index}`}><p className="font-roboto">{s}</p></li>
                   ))
                 }
             </ul>

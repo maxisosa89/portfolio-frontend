@@ -11,30 +11,30 @@ export default function DetailProjectCard ({project}) {
                         <button className="border border-white bg-secondary hover:bg-tertiary text-white font-bold py-2 px-4 m-1 rounded">{"<"}</button>
                     </div>
                 </ NavLink>
-                <h1 className="flex justify-center items-center w-full text-4xl text-white font-semibold uppercase">{project.projectTitle}</h1>
+                <h1 className="flex justify-center items-center w-full text-4xl text-white font-semibold uppercase font-helvetica">{project.projectTitle}</h1>
             </div>
             <Carousel project={project} heightCarousel={"h-96"}/>
             <div className="m-5 mt-10 text-2xl text-white font-bold">
-                <h3>Descripción</h3>
+                <h3 className="font-calibri">Descripción</h3>
             </div>
-            <div className="text-base text-justify text-white m-5">
+            <div className="text-base text-justify text-white m-5 font-roboto">
                 <p>{project.projectDescription}</p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div>
-                    <div className="m-5 text-2xl text-white font-bold">
+                    <div className="m-5 text-2xl text-white font-bold font-calibri">
                         <h3>Características</h3>
                     </div>
                     {
                         project.projectFunctions.map(f => (
                             <div key={f} className="text-base text-white ml-5">
-                                <p>{f}</p>
+                                <p className="font-roboto">{f}</p>
                             </div>
                         ))
                     }
                 </div>
                 <div>
-                    <div className="m-5 text-2xl text-white font-bold">
+                    <div className="m-5 text-2xl text-white font-bold font-calibri">
                         <h3>Tecnologías</h3>
                     </div>
                     {
@@ -42,7 +42,7 @@ export default function DetailProjectCard ({project}) {
                             <div key={t.techTitle} className="flex text-base text-white ml-5">
                                 <img src={t.techImg} alt="Not found" 
                                 className="h-5 w-5" />
-                                <p className="ml-2">{t.techTitle}</p>
+                                <p className="ml-2 font-roboto">{t.techTitle}</p>
                             </div>
                         ))
                     }

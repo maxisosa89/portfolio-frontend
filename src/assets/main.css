@@ -922,6 +922,15 @@ video {
 .align-middle {
   vertical-align: middle;
 }
+.font-helvetica {
+  font-family: Helvetica, Arial, sans-serif;
+}
+.font-calibri {
+  font-family: Calibri, sans-serif;
+}
+.font-roboto {
+  font-family: Roboto, sans-serif;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -941,6 +950,10 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .text-3xl {
   font-size: 1.875rem;

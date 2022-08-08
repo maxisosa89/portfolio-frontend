@@ -26,11 +26,11 @@ export default function HomePage() {
           <Spinner />
         </div> :
         <div className="bg-secondary m-auto text-white mx-2 md:mx-6 lg:mx-12 p-2 md:p-6 lg:p-12 min-w-full md:min-w-[600px] shadow-md shadow-primary">
-          <h1 className="text-5xl m-5">
+          <h1 className="text-5xl m-5 font-helvetica">
             {homePageData.homeTitle || "Título"}
           </h1>
-          <h3 className="text-3xl m-5">{homePageData.homeSubTitle || "Subtítulo"}</h3>
-          <p className="m-5">{homePageData.homeSummary || "Resumen"}</p>
+          <h3 className="text-3xl m-5 font-calibri">{homePageData.homeSubTitle || "Subtítulo"}</h3>
+          <p className="m-5 font-roboto">{homePageData.homeSummary || "Resumen"}</p>
           <div className="text-center self-end m-3">
             <NavLink to="/projects">
               <button

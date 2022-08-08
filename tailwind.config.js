@@ -9,7 +9,10 @@ module.exports = {
         tertiary: '#4f5b62'
       },
       fontFamily: {
-        sans: ['Oswald', 'sans-serif']
+        sans: ['Oswald', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+        helvetica: ['Helvetica', 'Arial', 'sans-serif'],
+        calibri: ['Calibri', 'sans-serif'],
       },
       backgroundImage: {
         'add': "url('https://res.cloudinary.com/dg7fmdsmw/image/upload/v1656061619/Portfolio/iconos/add_oeqefo.png')",

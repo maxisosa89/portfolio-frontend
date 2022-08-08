@@ -53,33 +53,33 @@ export default function NavBar() {
       <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" id="containerData">
         <div className="text-sm lg:flex-grow">
           <NavLink to='/' onClick={handleToggle} value="home">
-            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location === "/" && 'text-tertiary'}`}>
+            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 font-calibri text-lg ${location === "/" && 'text-tertiary'}`}>
               Home
             </p>
           </NavLink>
           <NavLink to='/projects' onClick={handleToggle} value="projects">
-            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("projects") && !location.includes("admin") && 'text-tertiary'}`}>
+            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 font-calibri text-lg ${location.includes("projects") && !location.includes("admin") && 'text-tertiary'}`}>
               Mis Proyectos
             </p>
           </NavLink>
           <NavLink to='/about' onClick={handleToggle} value="skils">
-            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("about") && !location.includes("admin") && 'text-tertiary'}`}>
+            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 font-calibri text-lg ${location.includes("about") && !location.includes("admin") && 'text-tertiary'}`}>
               Sobre mí
             </p>
           </NavLink>
           <NavLink to='/contact' onClick={handleToggle} value="contact">
-            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("contact") && !location.includes("admin") && 'text-tertiary'}`}>
+            <p className={`block mt-4 lg:inline-block lg:mt-0 text-white hover:text-tertiary mr-4 font-calibri text-lg ${location.includes("contact") && !location.includes("admin") && 'text-tertiary'}`}>
               Contacto
             </p>
           </NavLink>
           <NavLink to='/admin/dashboard' onClick={handleToggle} value="adminDashboard">
-            <p className={`mt-4 lg:mt-0 text-white hover:text-tertiary mr-4 ${location.includes("admin") && 'text-tertiary'} ${auth ? 'block lg:inline-block' : 'hidden'}`}>
+            <p className={`mt-4 lg:mt-0 text-white hover:text-tertiary mr-4 font-calibri text-lg ${location.includes("admin") && 'text-tertiary'} ${auth ? 'block lg:inline-block' : 'hidden'}`}>
               Admin
             </p>
           </NavLink>
             <p
               onClick={handleLogout}
-              className={`mt-4 lg:mt-0 text-white hover:text-tertiary mr-4 cursor-pointer ${auth ? 'block lg:inline-block' : 'hidden'}`}>
+              className={`mt-4 lg:mt-0 text-white hover:text-tertiary mr-4 cursor-pointer font-calibri text-lg ${auth ? 'block lg:inline-block' : 'hidden'}`}>
               Cerrar Sesión
             </p>
         </div>
